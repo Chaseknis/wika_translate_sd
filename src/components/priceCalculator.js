@@ -175,7 +175,7 @@ function PriceCalculator() {
 
       {/* Word Count Display */}
       {wordCount > 0 && (
-        <p>
+        <p className="calc-status">
           Word Count:
           {' '}
           {wordCount}
@@ -184,7 +184,7 @@ function PriceCalculator() {
 
       {/* Volume Classification */}
       {volume && (
-        <p>
+        <p className="calc-status">
           Document Classified as:
           {' '}
           {volume === 'low' ? 'Low Volume' : 'High Volume'}
@@ -192,12 +192,12 @@ function PriceCalculator() {
       )}
 
       {/* Notification Message */}
-      {notification && <p>{notification}</p>}
-      {' '}
-      {/* Display notification message */}
+      {notification && <p className="calc-status">{notification}</p>}
 
       {/* Calculate Price Button */}
-      <button type="button" onClick={calculatePrice}>Send Price</button>
+      <button type="button" onClick={calculatePrice}>
+        <span>Send Price</span>
+      </button>
     </div>
   );
 }

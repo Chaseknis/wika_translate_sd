@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import Quotation from '../components/Quotation';
 import ContactDetails from '../components/contactDetails';
 import videoBg5 from '../assets/videoBg5.mp4';
-import favicon from '../assets/new_logo.png';
+import SiteFooter from '../components/SiteFooter';
 
 function Contact() {
   const [showContactForm, setShowContactForm] = useState(true); // Default is Contact form
@@ -34,12 +34,23 @@ function Contact() {
     <>
       {/* ✅ SEO Metadata & Canonical Tag */}
       <Helmet>
-        <title>Contact Us - Wika Translate, Translation and Interpretation Company in Rwanda</title>
+        <title>Contact Us - Wika Translate | Get a Free Translation Quote in Rwanda</title>
+        <meta name="description" content="Get in touch with Wika Translate for professional translation and interpretation services in Rwanda. Request a free quote in under 10 minutes. Visit us in Kigali or reach us online." />
+        <meta name="keywords" content="contact Wika Translate, translation quote Rwanda, interpretation services Kigali, translation company contact Kigali, free translation quote Rwanda" />
         <link rel="canonical" href="https://www.wikatranslate.net/contact" />
+        <meta property="og:title" content="Contact Wika Translate | Free Translation Quote in Rwanda" />
+        <meta property="og:description" content="Contact Wika Translate for professional translation and interpretation services. Get a free quote in under 10 minutes. Based in Kigali, Rwanda." />
+        <meta property="og:url" content="https://www.wikatranslate.net/contact" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Wika Translate | Free Translation Quote in Rwanda" />
+        <meta name="twitter:description" content="Contact Wika Translate for professional translation and interpretation services. Get a free quote in under 10 minutes. Based in Kigali, Rwanda." />
+        <meta name="twitter:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
       </Helmet>
       <section className="contact_section" id="contact">
         <div className="contact_title_main_container">
-          <video src={videoBg5} className="bgVideo" autoPlay loop muted>
+          <video src={videoBg5} className="bgVideo" autoPlay loop muted playsInline>
             <track kind="captions" srcLang="en" label="English" />
           </video>
           {/* <div className="overlay" /> */}
@@ -119,106 +130,7 @@ function Contact() {
             <Quotation />
           )}
         </div>
-        <footer>
-          <div className="footer-container">
-            <div className="footer-content">
-              <div className="brand-section">
-                <a href="#home">
-                  <img
-                    src={favicon}
-                    alt="Wika Translate - Professional Translation and Interpretation Services"
-                    className="footer_logo"
-                    loading="lazy"
-                  />
-                </a>
-                <p className="brand-description">
-                  Wika Translate Ltd offers one-stop solutions to your translation needs.
-                </p>
-                <div className="social-links">
-                  <div className="footer_socials_wrapper">
-                    <a href="https://www.linkedin.com/company/81655771" className="socials_icon socials-2" target="_blank" aria-label="LinkedIn" rel="noreferrer">
-                      <i className="uil uil-linkedin" />
-                    </a>
-
-                    <a href="https://www.twitter.com/wikatranslate" className="socials_icon socials-3" target="_blank" aria-label="Twitter" rel="noreferrer">
-                      <i className="uil uil-twitter" />
-                    </a>
-
-                    <a target="_blank" href="https://www.goodfirms.co/company/wika-translate" className="socials_icon" rel="noreferrer">
-                      <img
-                        className="goodFirmsLogo"
-                        src="https://assets.goodfirms.co/badges/icon/white-goodfirms-icon.svg"
-                        title="Top Translation Services Company"
-                        alt="Top Translation Services Company on GoodFirms"
-                      />
-                    </a>
-
-                    <a href="https://www.instagram.com/wikatranslate" className="socials_icon socials-3" target="_blank" aria-label="Instagram" rel="noreferrer">
-                      <i className="uil uil-instagram-alt" />
-                    </a>
-
-                    <a href="https://www.facebook.com/wikatranslate" className="socials_icon socials-1" target="_blank" aria-label="Facebook" rel="noreferrer">
-                      <i className="uil uil-facebook" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="links-section">
-                <h3 className="links-title">Useful Links</h3>
-                <div className="links-container">
-                  <ul className="links-list">
-                    <li><a href="#home" className="link">Home</a></li>
-                    <li><a href="#contact-us" className="link">Contact Us</a></li>
-                    <li><a href="#about-us" className="link">About Us</a></li>
-                    <li><a href="#services" className="link">Services</a></li>
-                  </ul>
-                  <ul className="links-list">
-                    <li><a href="#blog" className="link">Blog</a></li>
-                    <li><a href="#faq" className="link">FAQ</a></li>
-                    <li><a href="#terms_and_conditions" className="link">Terms & Conditions</a></li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="newsletter-section">
-                <h3 className="newsletter-title">Subscribe To Our Newsletter</h3>
-                <div className="newsletter-form">
-                  <form name="submit-to-google-sheet" className="form">
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      placeholder="Email Address"
-                      className="email-input"
-                    />
-                    <button type="submit" className="subscribe-button">
-                      Subscribe
-                      <i className="uil uil-message send-icon" />
-                    </button>
-                  </form>
-                  <span id="msg" className="message" />
-                </div>
-                <p className="newsletter-description">
-                  Wika Translate Ltd constantly reaches out to
-                  translators and interpreters to find the very best.
-                </p>
-              </div>
-            </div>
-
-            <div className="footer-bottom">
-              <hr className="divider-line" />
-              <div className="footer-bottom-content">
-                <span className="terms-text">
-                  Terms of use | Privacy Environmental Policy
-                </span>
-                <span className="copyrights">
-                  &#169; 2024 Wika Translate Ltd. All rights reserved
-                </span>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
       </section>
     </>
   );

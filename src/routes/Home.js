@@ -1,9 +1,14 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import LazyLoad from 'react-lazyload'; // Import LazyLoad
 import videoBg5 from '../assets/videoBg5.mp4';
 import './styles/home.css';
+import './styles/about.css';
+import './styles/services.css';
+import './styles/translation.css';
+import './styles/faq.css';
+import './styles/contact.css';
+import './styles/footer.css';
 import Socials from '../components/socials';
 import PriceCalculator from '../components/priceCalculator';
 import ScrollDown from '../components/scrollDown';
@@ -16,8 +21,51 @@ import OurPartners from '../components/ourPartners';
 import FAQItem from '../components/logic/FAQItem';
 import Quotation from '../components/Quotation';
 import ContactDetails from '../components/contactDetails';
-import favicon from '../assets/new_logo.png';
 import blogContent from '../components/blogContent';
+import SiteFooter from '../components/SiteFooter';
+import AnimateOnScroll from '../components/AnimateOnScroll';
+import AnimatedCounter from '../components/AnimatedCounter';
+
+const staggerContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
+
+const staggerItem = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const faqItems = [
+  {
+    q: 'How do you ensure the accuracy of your translation services?',
+    a: 'At Wika Translate, we prioritize quality and uphold a strong commitment to our reputation. Each project is assigned to a team of experienced translators specializing in the relevant field, ensuring we deliver the highest standard of service in the industry.',
+  },
+  {
+    q: 'What is the difference between a certified and a notarized translation?',
+    a: "A certified translation is completed, signed, and sealed by a professional translator, ensuring its accuracy. A notarized translation involves translating official documents that are then authenticated by a public notary. If you're unsure which type of translation you need, feel free to contact us at any time for guidance.",
+  },
+  {
+    q: 'Can you translate and certify my birth certificate?',
+    a: 'Yes, Wika Translate offers certified translations for a wide range of official documents, including birth certificates, degrees, transcripts, police clearances, death certificates, divorce documents, marriage and celibacy certificates, among others.',
+  },
+  {
+    q: 'How can I send my documents for translation?',
+    a: "You can email your documents to info@wikatranslate.net. We'll review them and provide you with a FREE quote in less than 10 minutes.",
+  },
+  {
+    q: 'How long does it take to translate my documents?',
+    a: "The turnaround time depends on the size, complexity, and languages required for your project. We invite you to contact us to discuss your specific needs, and we'll always strive to exceed your expectations within any deadline.",
+  },
+  {
+    q: 'What are your payment methods and terms?',
+    a: 'We accept payments via Debit/Credit card (POS), Mobile Money, WorldRemit, checks, and bank transfers. Payment is typically requested in advance.',
+  },
+  {
+    q: 'What currencies do you accept?',
+    a: 'We accept payments in USD and Rwandan Francs. However, we are flexible and open to discussing other currency options based on your needs.',
+  },
+];
 
 function Home() {
   const videoRef = useRef(null);
@@ -68,10 +116,21 @@ function Home() {
 
   return (
     <main className="page_container">
+      <video
+        ref={videoRef}
+        src={videoBg5}
+        className="bgVideo"
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster={image3}
+        preload="auto"
+      >
+        <track kind="captions" srcLang="en" label="English" />
+      </video>
+      <div className="video-fallback" aria-hidden="true" />
       <section id="home" className="home">
-        <video ref={videoRef} src={videoBg5} className="bgVideo" autoPlay loop muted>
-          <track kind="captions" srcLang="en" label="English" />
-        </video>
         <div className="overlay" />
         <div className="home_container">
           <div className="home_wrapper">
@@ -108,7 +167,7 @@ function Home() {
                 </p>
                 <Link to="/contact/quotation">
                   <button className="quotation_button button" type="button">
-                    Get a quick Quotation
+                    <span>Get a quick Quotation</span>
                   </button>
                 </Link>
               </div>
@@ -129,7 +188,7 @@ function Home() {
         <Carousel />
         <div className="about_container">
           <div className="about_wrapper">
-            <div className="about_title_container">
+            <AnimateOnScroll variant="fadeLeft" className="about_title_container">
               <div className="about_page_title">
                 <h2>
                   About Us
@@ -154,16 +213,22 @@ function Home() {
                 pool of talent, we possess the expertise and capability to consistently
                 deliver high-quality services to our clients swiftly and efficiently.
               </p>
-              <div className="about_banner_wrapper">
-                <div className="about_banner_card_wrapper">
-                  <span>10,000,000+</span>
+              <motion.div
+                className="about_banner_wrapper"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <motion.div className="about_banner_card_wrapper" variants={staggerItem}>
+                  <AnimatedCounter target={10000000} suffix="+" />
                   <p>Words Translated</p>
-                </div>
-                <div className="about_banner_card_wrapper">
-                  <span>10,000+</span>
+                </motion.div>
+                <motion.div className="about_banner_card_wrapper" variants={staggerItem}>
+                  <AnimatedCounter target={10000} suffix="+" />
                   <p>Clients Served</p>
-                </div>
-                <div>
+                </motion.div>
+                <motion.div variants={staggerItem}>
                   <a target="_blank" href="https://www.goodfirms.co/company/wika-translate" rel="noreferrer">
                     <img
                       className="goodFirms"
@@ -172,23 +237,28 @@ function Home() {
                       alt="Top Translation Services Company on GoodFirms"
                     />
                   </a>
-                </div>
-              </div>
-            </div>
+                </motion.div>
+              </motion.div>
+            </AnimateOnScroll>
 
-            <div className="about_image_container">
+            <AnimateOnScroll variant="fadeRight" className="about_image_container">
               <div className="about_image_wrapper">
-                <LazyLoad height={200} offset={100} placeholder={<div>Loading...</div>}>
-                  <img src={image3} alt="Interpretation Company in Kigali" style={{ width: '100%', height: 'auto' }} />
-                </LazyLoad>
+                <img
+                  src={image3}
+                  alt="Professional translation and interpretation team at Wika Translate, Kigali"
+                  loading="lazy"
+                  width="600"
+                  height="400"
+                  style={{ width: '100%', height: 'auto' }}
+                />
               </div>
-            </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
       <section className="services" id="services">
         <Banner />
-        <div className="header_wrapper">
+        <AnimateOnScroll variant="fadeUp" className="header_wrapper">
           <div className="faq-header">
             <div>
               <h2 className="services-title">
@@ -215,11 +285,11 @@ function Home() {
               you connect with your audience like never before!
             </p>
           </div>
-        </div>
+        </AnimateOnScroll>
 
-        <div className="wrapper">
+        <AnimateOnScroll variant="scaleIn" delay={0.1} className="wrapper">
           <div className="services_container">
-            <input type="radio" name="slide" id="c1" checked />
+            <input type="radio" name="slide" id="c1" defaultChecked />
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="c1" className="services_card">
               <div className="services_row">
@@ -293,12 +363,12 @@ function Home() {
             </label>
 
           </div>
-        </div>
+        </AnimateOnScroll>
 
       </section>
       <section className="translation" id="translation">
         <div className="translation_section-container">
-          <div className="translation_one">
+          <AnimateOnScroll variant="fadeLeft" className="translation_one">
             <div className="heading-container">
               <div className="translation_page_title">
                 <h2>
@@ -322,12 +392,17 @@ function Home() {
                 communications.
               </p>
             </div>
-
-          </div>
+          </AnimateOnScroll>
           <div className="translation_two">
-            <div className="steps-container">
+            <motion.div
+              className="steps-container"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+            >
               {['Translation', 'Proofreading', 'Editing', 'Final Review', 'Delivery'].map((stepTitle, index) => (
-                <div className="step-item" key={stepTitle}>
+                <motion.div className="step-item" key={stepTitle} variants={staggerItem}>
                   <div className="icon-container">
                     <div className="icon_and_title_container">
                       {getStepIcon(stepTitle)}
@@ -358,15 +433,15 @@ function Home() {
                       {getDescription(stepTitle)}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
       <section className="faq" id="faq">
         <div className="faq-container">
-          <div className="faq-header">
+          <AnimateOnScroll variant="fadeUp" className="faq-header">
             <div>
               <h2 className="faq-title">
                 FAQ
@@ -387,66 +462,61 @@ function Home() {
               results, ensuring successful communication outcomes for every client and strengthening
               relationships that endure over time.
             </p>
-          </div>
+          </AnimateOnScroll>
 
           <div className="faq-content-wrapper">
-            <div className="faq-list-container">
-              <FAQItem
-                question="How do you ensure the accuracy of your translation services?"
-                answer="At Wika Translate, we prioritize quality and uphold a strong commitment to our reputation. Each project is assigned to a team of experienced translators specializing in the relevant field, ensuring we deliver the highest standard of service in the industry."
-              />
-              <FAQItem
-                question="What is the difference between a certified and a notarized translation?"
-                answer="A certified translation is completed, signed, and sealed by a professional translator, ensuring its accuracy. A notarized translation involves translating official documents that are then authenticated by a public notary. If you're unsure which type of translation you need, feel free to contact us at any time for guidance."
-              />
-              <FAQItem
-                question="Can you translate and certify my birth certificate?"
-                answer="Yes, Wika Translate offers certified translations for a wide range of official documents, including birth certificates, degrees, transcripts, police clearances, death certificates, divorce documents, marriage and celibacy certificates, among others."
-              />
-              <FAQItem
-                question="How can I send my documents for translation?"
-                answer="You can email your documents to info@wikatranslate.net. We’ll review them and provide you with a FREE quote in less than 10 minutes."
-              />
-              <FAQItem
-                question="How long does it take to translate my documents?"
-                answer="The turnaround time depends on the size, complexity, and languages required for your project. We invite you to contact us to discuss your specific needs, and we’ll always strive to exceed your expectations within any deadline."
-              />
-              <FAQItem
-                question="What are your payment methods and terms?"
-                answer="We accept payments via Debit/Credit card (POS), Mobile Money, WorldRemit, checks, and bank transfers. Payment is typically requested in advance."
-              />
-              <FAQItem
-                question="What currencies do you accept?"
-                answer="We accept payments in USD and Rwandan Francs. However, we are flexible and open to discussing other currency options based on your needs."
-              />
-            </div>
-
+            <motion.div
+              className="faq-list-container"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.05 }}
+            >
+              {faqItems.map(({ q, a }) => (
+                <motion.div key={q} variants={staggerItem}>
+                  <FAQItem question={q} answer={a} />
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
         <OurPartners />
-        <div className="blog-list">
-          <Link to="blog">View Blogs</Link>
-          {Object.keys(blogContent).map((id) => (
-            <div key={id} className="blog-preview">
-              <h3>{blogContent[id].title}</h3>
-              <p>{blogContent[id].metaDescription}</p>
-              <Link to={`/blog/${id}`}>{blogContent[id].anchorText}</Link>
-            </div>
-          ))}
+        <div className="home-blog-section">
+          <div className="home-blog-header">
+            <h2>
+              Latest Articles
+              <hr />
+            </h2>
+            <Link to="/blog" className="home-blog-view-all">View All Articles →</Link>
+          </div>
+          <motion.div
+            className="blog-list"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
+            {Object.keys(blogContent).map((id) => (
+              <motion.div key={id} className="blog-preview" variants={staggerItem}>
+                <h3>{blogContent[id].title}</h3>
+                <p>{blogContent[id].metaDescription}</p>
+                <Link to={`/blog/${id}`}>{blogContent[id].anchorText}</Link>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
       <section className="contact" id="contact">
-        <div className="toggle-buttons">
+        <AnimateOnScroll variant="fadeUp" className="toggle-buttons">
           <button type="button" onClick={() => setShowContactForm(true)} className={`toggle-btn ${showContactForm ? 'active' : ''}`}>
-            {/* <i className="bx bx-mail-send contact_card_icon" /> */}
             Contact Us
           </button>
           <button type="button" onClick={() => setShowContactForm(false)} className={`toggle-btn ${!showContactForm ? 'active' : ''}`}>
             Get a Quotation
           </button>
-        </div>
+        </AnimateOnScroll>
 
-        <div className="form-container">
+        <AnimateOnScroll variant="fadeUp" delay={0.1} className="form-container">
           {showContactForm ? (
             <div className="contact-form-section">
               <div className="text-section">
@@ -478,113 +548,15 @@ function Home() {
                 </div>
                 <textarea id="message" name="message" placeholder="Message" rows="8" className="input" required />
 
-                <button type="submit" className="button">Send Message</button>
+                <button type="submit" className="button"><span>Send Message</span></button>
               </form>
             </div>
           ) : (
             <Quotation />
           )}
-        </div>
+        </AnimateOnScroll>
       </section>
-      <footer>
-        <div className="footer-container">
-          <div className="footer-content">
-            <div className="brand-section">
-              <a href="#home">
-                <img
-                  src={favicon}
-                  alt="Wika Translate - Professional Translation and Interpretation Services"
-                  className="footer_logo"
-                  loading="lazy"
-                />
-              </a>
-              <p className="brand-description">
-                Wika Translate Ltd offers one-stop solutions to your translation needs.
-              </p>
-              <div className="social-links">
-                <div className="footer_socials_wrapper">
-                  <a href="https://www.linkedin.com/company/81655771" className="socials_icon socials-2" target="_blank" aria-label="LinkedIn" rel="noreferrer">
-                    <i className="uil uil-linkedin" />
-                  </a>
-
-                  <a href="https://www.twitter.com/wikatranslate" className="socials_icon socials-3" target="_blank" aria-label="Twitter" rel="noreferrer">
-                    <i className="uil uil-twitter" />
-                  </a>
-                  <a target="_blank" href="https://www.goodfirms.co/company/wika-translate" className="socials_icon" rel="noreferrer">
-                    <img
-                      className="goodFirmsLogo"
-                      src="https://assets.goodfirms.co/badges/icon/white-goodfirms-icon.svg"
-                      title="Top Translation Services Company"
-                      alt="Top Translation Services Company on GoodFirms"
-                    />
-                  </a>
-
-                  <a href="https://www.instagram.com/wikatranslate" className="socials_icon socials-3" target="_blank" aria-label="Instagram" rel="noreferrer">
-                    <i className="uil uil-instagram-alt" />
-                  </a>
-
-                  <a href="https://www.facebook.com/wikatranslate" className="socials_icon socials-1" target="_blank" aria-label="Facebook" rel="noreferrer">
-                    <i className="uil uil-facebook" />
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="links-section">
-              <h3 className="links-title">Useful Links</h3>
-              <div className="links-container">
-                <ul className="links-list">
-                  <li><a href="#home" className="link">Home</a></li>
-                  <li><a href="#contact-us" className="link">Contact Us</a></li>
-                  <li><a href="#about-us" className="link">About Us</a></li>
-                  <li><a href="#services" className="link">Services</a></li>
-                </ul>
-                <ul className="links-list">
-                  <li><a href="#blog" className="link">Blog</a></li>
-                  <li><a href="#faq" className="link">FAQ</a></li>
-                  <li><a href="#terms_and_conditions" className="link">Terms & Conditions</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="newsletter-section">
-              <h3 className="newsletter-title">Subscribe To Our Newsletter</h3>
-              <div className="newsletter-form">
-                <form name="submit-to-google-sheet" className="form">
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="Email Address"
-                    className="email-input"
-                  />
-                  <button type="submit" className="subscribe-button">
-                    Subscribe
-                    <i className="uil uil-message send-icon" />
-                  </button>
-                </form>
-                <span id="msg" className="message" />
-              </div>
-              <p className="newsletter-description">
-                Wika Translate Ltd constantly reaches out to
-                translators and interpreters to find the very best.
-              </p>
-            </div>
-          </div>
-
-          <div className="footer-bottom">
-            <hr className="divider-line" />
-            <div className="footer-bottom-content">
-              <span className="terms-text">
-                Terms of use | Privacy Environmental Policy
-              </span>
-              <span className="copyrights">
-                &#169; 2024 Wika Translate Ltd. All rights reserved
-              </span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

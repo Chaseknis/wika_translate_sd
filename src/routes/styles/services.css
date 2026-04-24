@@ -1,3 +1,22 @@
+/* ── Services inner page: full-page fixed video ── */
+.services_page_content_section {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  overflow: hidden;
+}
+
+.about_title_main_container > .bgVideo {
+  position: fixed;
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .about_title_main_container > .bgVideo {
+    display: none;
+  }
+}
+
 .services {
   width: 100%;
   padding: 5%;
@@ -5,12 +24,9 @@
   overflow: hidden;
 }
 
-.services_page_content_section {
-  width: 100%;
-  overflow: hidden;
-}
-
 .services_page_content_wrapper {
+  position: relative;
+  z-index: 2;
   padding: 5%;
   background-color: rgba(211, 204, 184, 0.9);
 }
@@ -19,17 +35,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 2rem;
+  padding-top: 4rem;
 }
 
 .services-title {
   color: #1a3c34;
-  position: relative;
   font-size: 22px;
-  padding: 2rem 0 0 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: block;
+  width: 100%;
+  padding: 0;
 }
 
 .services-title hr {
@@ -37,8 +51,7 @@
   border: none;
   height: 3px;
   background-color: #b7312a;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin: 10px 0 20px 0;
 }
 
 .services-paragraph {
@@ -65,15 +78,18 @@
   justify-content: center;
 }
 
+/* ── Accordion container ── */
 .services_container {
   height: 50vh;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: start;
+  justify-content: flex-start;
+  width: 100%;
 }
 
+/* ── Each card (collapsed) ── */
 .services_card {
-  width: 80px;
+  flex: 0 0 80px;          /* fixed narrow collapsed width */
   background-size: cover;
   cursor: pointer;
   overflow: hidden;
@@ -81,18 +97,30 @@
   margin: 0 10px;
   display: flex;
   align-items: flex-end;
-  transition: 0.6s cubic-bezier(0.28, -0.03, 0, 0.99);
+  transition:
+    flex 0.6s cubic-bezier(0.28, -0.03, 0, 0.99),
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
   box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.8);
+}
+
+.services_card:hover {
+  box-shadow: 0 16px 40px -5px rgba(0, 0, 0, 0.9);
+  filter: brightness(1.08);
 }
 
 .services_card > .services_row {
   color: #ffca7a;
   display: flex;
   flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
 }
 
 .services_card > .services_row > .services_icon {
+  flex-shrink: 0;
   width: 50px;
+  height: 50px;
   background: #ffca7a;
   color: #1a3c34;
   border-radius: 50%;
@@ -103,7 +131,8 @@
 }
 
 .services_card > .services_row .services_description {
-  width: 520px;
+  flex: 1;
+  min-width: 0;
   height: 80px;
   display: flex;
   flex-direction: column;
@@ -111,7 +140,7 @@
   overflow: hidden;
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   transition-delay: 0.3s;
 }
 
@@ -128,8 +157,9 @@
   display: none;
 }
 
+/* Expanded card: fill all remaining space instead of fixed 800px */
 .services_container input:checked + label {
-  width: 800px;
+  flex: 1;
 }
 
 .services_container input:checked + label .services_description {
@@ -172,6 +202,85 @@
   background-size: cover;
 }
 
+/* ── Mobile: vertical accordion (< 768px) ── */
+@media screen and (max-width: 767px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  /* Stack cards vertically, expand by height not width */
+  .services_container {
+    flex-direction: column;
+    height: auto;
+    gap: 1rem;
+  }
+
+  /* Collapsed mobile card: full-width bar */
+  .services_card {
+    flex: none;
+    width: 100%;
+    height: 68px;
+    border-radius: 14px;
+    margin: 0;
+    align-items: center;
+    transition:
+      height 0.5s cubic-bezier(0.28, -0.03, 0, 0.99),
+      box-shadow 0.3s ease,
+      filter 0.3s ease;
+  }
+
+  /* Expanded mobile card: grows by height */
+  .services_container input:checked + label {
+    flex: none;
+    width: 100%;
+    height: 190px;
+  }
+
+  /* Description is always flex; overflow hidden on the card clips it */
+  .services_card > .services_row .services_description {
+    height: auto;
+    max-height: 120px;
+  }
+
+  .services_description h3 {
+    font-size: 0.85rem;
+  }
+
+  .services_description p {
+    font-size: 0.72rem;
+    line-height: 1.4;
+  }
+}
+
+/* ── Tablet tweaks (768px – 1024px) ── */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .services_container {
+    height: 45vh;
+  }
+
+  .services_card {
+    flex: 0 0 60px;
+    border-radius: 1.25rem;
+    margin: 0 6px;
+  }
+
+  .services_card > .services_row > .services_icon {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+  }
+
+  .services_description h3 {
+    font-size: 0.85rem;
+  }
+
+  .services_description p {
+    font-size: 0.72rem;
+    line-height: 1.4;
+  }
+}
+
+/* ── Small desktop and up ── */
 @media screen and (min-width: 576px) {
   .services-paragraph {
     padding: 1rem 2rem 2rem 4rem;

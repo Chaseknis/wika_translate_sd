@@ -256,7 +256,7 @@ function Quotation() {
 
         {/* Submit Button */}
         <button type="submit" className="button" disabled={isSubmitting}>
-          {isSubmitting ? 'Sending...' : 'Send Message'}
+          <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
         </button>
       </form>
     </div>

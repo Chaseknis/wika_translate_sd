@@ -1,15 +1,26 @@
 .about {
   width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Inner page: video fixed for full-page background ── */
+.about_title_main_container > .bgVideo {
+  position: fixed;
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .about_title_main_container > .bgVideo {
+    display: none;
+  }
 }
 
 .about_title_main_container .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80vh;
-  background: linear-gradient(-25deg, rgba(53, 44, 20, 0.7) 100%, rgba(37, 31, 10, 0.9) 100%);
-  z-index: 0;
+  inset: 0;
+  background: linear-gradient(-25deg, rgba(53, 44, 20, 0.65) 0%, rgba(26, 60, 52, 0.88) 100%);
+  z-index: 1;
 }
 
 .about_title_main_container {
@@ -19,6 +30,7 @@
   padding-right: 5%;
   padding-top: 30%;
   overflow: hidden;
+  position: relative;
 }
 
 .about_main_title_wrapper {
@@ -27,7 +39,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  position: relative;
+  z-index: 2;
 }
 
 .about_best_ad {
@@ -99,37 +112,30 @@ h2 {
 
 .about_main_title_paragraph {
   width: 100%;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: #d2c79f;
-  font-style: italic;
-  line-height: 15px;
+  line-height: 1.7;
   text-align: center;
+  position: relative;
   z-index: 2;
 }
 
 .about_container {
   width: 100%;
   background: linear-gradient(rgba(56, 52, 41, 0.6), rgba(56, 52, 41, 0.9)), url(/src/assets/image5.JPG);
-  object-fit: cover;
   background-position: center;
   background-size: cover;
-  background-attachment: fixed;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: 15%;
-  padding-bottom: 6%;
+  padding: 4rem 5% 5rem;
 }
 
 .about_main_title_content_container {
   width: 100%;
+  position: relative;
+  z-index: 2;
   background: linear-gradient(rgba(56, 52, 41, 0.6), rgba(56, 52, 41, 0.9)), url(/src/assets/image5.JPG);
-  object-fit: cover;
   background-position: center;
   background-size: cover;
-  background-attachment: fixed;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 6%;
+  padding: 0 5% 5rem;
 }
 
 .about_wrapper {
@@ -140,7 +146,7 @@ h2 {
 }
 
 .about_title_container {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   margin-right: 0;
   order: 2;
 }
@@ -151,27 +157,29 @@ h2 {
 
 .about_image_wrapper img {
   width: 100%;
-  padding-top: 3rem;
   height: auto;
+  border-radius: 4px;
+  display: block;
+}
+
+.about_page_title {
+  padding-top: 2rem;
 }
 
 .about_page_title h2 {
   color: #ffca7a;
-  position: relative;
   font-size: 22px;
-  padding: 2rem 0 0 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: block;
+  width: 100%;
+  padding: 0;
 }
 
 .about_page_title hr {
-  width: 90px; /* Line width */
+  width: 90px;
   border: none;
-  height: 3px; /* Thickness of the line */
-  background-color: #b7312a; /* Line color */
-  margin-top: 10px; /* Center the line and add space around it */
-  margin-bottom: 20px;
+  height: 3px;
+  background-color: #b7312a;
+  margin: 10px 0 20px 0;
 }
 
 .about_page_title p {

@@ -1,12 +1,7 @@
-
 .quotation-form {
   display: flex;
   flex-direction: column;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .quotation_input_wrapper {
@@ -15,75 +10,106 @@
   gap: 1rem;
 }
 
-.contact-form input {
-  background: none;
-  font-size: 0.8rem;
-  outline: none;
-  padding: 10px;
-}
-
+/* react-phone-input-2 */
 .react-tel-input .form-control {
+  width: 100% !important;
   background: none;
   outline: none;
   color: #ffca7a;
   font-size: 0.8rem;
-  border: 1px solid #ffca7a;
-  border-radius: 0;
+  border: 1px solid rgba(255, 202, 122, 0.5) !important;
+  border-radius: 0 !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.selected-flag .open {
+.react-tel-input .form-control:focus {
+  border-color: #ffca7a !important;
+  box-shadow: 0 0 0 3px rgba(255, 202, 122, 0.15) !important;
+}
+
+.react-tel-input .flag-dropdown {
+  background: none !important;
+  border: 1px solid rgba(255, 202, 122, 0.5) !important;
+  border-right: none !important;
+  border-radius: 0 !important;
+}
+
+.react-tel-input .selected-flag:hover,
+.react-tel-input .selected-flag:focus {
+  background: rgba(255, 202, 122, 0.1) !important;
+}
+
+.react-tel-input .country-list {
+  background-color: #1a3c34;
+  color: #ffca7a;
+}
+
+.react-tel-input .country-list .country:hover,
+.react-tel-input .country-list .country.highlight {
+  background-color: rgba(255, 202, 122, 0.15);
+}
+
+/* react-select country dropdown */
+.select_country .react-select__control {
   background: none;
+  border: 1px solid rgba(255, 202, 122, 0.5);
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 0.8rem;
+  color: #ffca7a;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.contact-form select {
-  padding: 10px;
+.select_country .react-select__control:hover {
+  border-color: #ffca7a;
+}
+
+.select_country .react-select__control--is-focused {
+  border-color: #ffca7a !important;
+  box-shadow: 0 0 0 3px rgba(255, 202, 122, 0.15) !important;
+}
+
+.select_country .react-select__single-value,
+.select_country .react-select__placeholder,
+.select_country .react-select__input-container {
+  color: #ffca7a;
   font-size: 0.8rem;
 }
 
-.select_country {
-  background-color: #ffca7a; /* Light background */
-  border: 1px solid #ffca7a; /* Light border */
-  border-radius: 5px; /* Rounded corners */
-  font-size: 0.8rem; /* Set font size */
-  outline: none;
+.select_country .react-select__indicator svg {
+  fill: rgba(255, 202, 122, 0.7);
+}
+
+.select_country .react-select__indicator-separator {
+  background-color: rgba(255, 202, 122, 0.3);
 }
 
 .select_country .react-select__menu {
-  border-radius: 5px; /* Rounded corners */
-  border: 1px solid #ffca7a; /* Border for the dropdown */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
-}
-
-/* Style for each option in the dropdown */
-.select_country .react-select__option {
-  padding: 10px; /* Add padding to the options */
-  font-size: 14px; /* Set font size for options */
-}
-
-/* Style for the selected option */
-.select_country .react-select__option--is-selected {
-  background-color: #ffca7a; /* Blue background for selected option */
-  color: #ffca7a; /* White text */
-}
-
-/* Style for option hover state */
-.select_country .react-select__option--is-focused {
-  background-color: #e6f7ff; /* Light blue background on hover */
-  color: #ffca7a; /* Dark text */
-}
-
-.contact-form textarea {
-  resize: none;
+  background-color: #1a3c34;
+  border: 1px solid rgba(255, 202, 122, 0.3);
+  border-radius: 0;
   font-size: 0.8rem;
+}
+
+.select_country .react-select__option {
+  color: #ffca7a;
+  background-color: transparent;
+  padding: 8px 12px;
+}
+
+.select_country .react-select__option--is-focused {
+  background-color: rgba(255, 202, 122, 0.12);
+  color: #ffca7a;
+}
+
+.select_country .react-select__option--is-selected {
+  background-color: rgba(255, 202, 122, 0.25);
+  color: #ffca7a;
 }
 
 .phone_input {
   background: none;
 }
-
-/* @media screen and (min-width: 576px) {
-
-} */
 
 @media screen and (min-width: 768px) {
   .quotation_input_wrapper {
@@ -94,10 +120,7 @@
 @media screen and (min-width: 992px) {
   .quotation-form {
     flex-direction: row;
-  }
-
-  .contact-form-section {
-    flex-direction: row;
+    gap: 2rem;
   }
 
   .contact-form {

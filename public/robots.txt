@@ -13,6 +13,4 @@ Disallow: /
 User-agent: SemrushBot
 Disallow: /
 
-Sitemap: https://wikatranslate.net/sitemap.xml
-
-Crawl-delay: 10
+Sitemap: https://www.wikatranslate.net/sitemap.xml

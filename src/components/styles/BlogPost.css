@@ -1,38 +1,230 @@
+.blog-post-page {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(rgba(37, 31, 10, 0.95), rgba(53, 44, 20, 0.98)), url(/src/assets/image5.JPG);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 8rem 5% 4rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.blog-post-header {
+  max-width: 860px;
+  margin: 0 auto 2.5rem;
+}
+
+.blog-post-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #ffca7a;
+  line-height: 1.3;
+  padding-bottom: 1rem;
+}
+
+.blog-post-divider {
+  width: 90px;
+  border: none;
+  height: 3px;
+  background-color: #b7312a;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.blog-post-content {
+  max-width: 860px;
+  margin: 0 auto 3rem;
+  font-size: 0.9rem;
+  color: #d2c79f;
+  line-height: 1.8;
+}
+
+.blog-post-content h2 {
+  font-size: 1.3rem;
+  color: #ffca7a;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-post-content h3 {
+  font-size: 1.1rem;
+  color: #ffca7a;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-post-content p {
+  margin-bottom: 1.2rem;
+}
+
+.blog-post-content a {
+  color: #4caf50;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.blog-content a {
+  color: #4caf50;
+  text-decoration: underline;
+  transition: color 0.25s ease;
+}
+
+.blog-post-content a:hover {
+  color: #ffca7a;
+}
+
+.blog-content a:hover {
+  color: #ffca7a;
+}
+
+.blog-post-content ul,
+.blog-post-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.blog-post-content li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  list-style: disc;
+}
+
+.blog-post-cta {
+  max-width: 860px;
+  margin: 0 auto;
+  background-color: #b7312a;
+  padding: 1.5rem 2rem;
+  border-left: 4px solid #ffca7a;
+}
+
+.blog-post-cta p {
+  color: #ffca7a;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.blog-post-cta-link {
+  color: #ffca7a;
+  font-weight: 700;
+  text-decoration: underline;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  transition: opacity 0.3s ease;
+}
+
+.blog-post-cta-link:hover {
+  opacity: 0.75;
+}
+
+/* ── Blog post page (rendered via App.js BlogPostContent) ── */
 .blog-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #b20000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  width: 100%;
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(37, 31, 10, 0.97), rgba(53, 44, 20, 0.99)),
+    url(/src/assets/image5.JPG) center / cover fixed;
+  padding: 8rem 5% 5rem;
 }
 
 .blog-title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 15px;
+  max-width: 860px;
+  margin: 0 auto 1rem;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #ffca7a;
+  line-height: 1.3;
+}
+
+.blog-title::after {
+  content: '';
+  display: block;
+  width: 90px;
+  height: 3px;
+  background-color: #b7312a;
+  margin-top: 14px;
+  margin-bottom: 2rem;
 }
 
 .blog-content {
+  max-width: 860px;
+  margin: 0 auto 3rem;
+  font-size: 0.9rem;
+  color: #d2c79f;
+  line-height: 1.8;
+}
+
+.blog-content h2 {
+  font-size: 1.3rem;
+  color: #ffca7a;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-content h3 {
   font-size: 1.1rem;
-  color: #555;
-  line-height: 1.6;
+  color: #ffca7a;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.blog-container p {
-  margin-bottom: 10px;
+.blog-content p {
+  margin-bottom: 1.2rem;
 }
 
-.blog-container h2 {
-  font-size: 1.5rem;
-  color: #222;
-  margin-top: 20px;
+.blog-content ul,
+.blog-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.blog-content li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  list-style: disc;
 }
 
 .blog-not-found {
   text-align: center;
   font-size: 1.2rem;
-  color: red;
+  color: #b7312a;
   font-weight: bold;
+  padding: 4rem 0;
+}
+
+@media screen and (min-width: 576px) {
+  .blog-post-title {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .blog-post-title {
+    font-size: 2.4rem;
+  }
+
+  .blog-post-content {
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .blog-post-page {
+    padding: 10rem 10% 6rem;
+  }
+
+  .blog-post-title {
+    font-size: 2.8rem;
+  }
+
+  .blog-post-content {
+    font-size: 1rem;
+  }
+
+  .blog-post-cta {
+    padding: 2rem 2.5rem;
+  }
 }

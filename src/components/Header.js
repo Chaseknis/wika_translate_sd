@@ -9,12 +9,20 @@ function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    let rafId = null;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 50);
+        rafId = null;
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const handleToggle = () => {
@@ -23,8 +31,7 @@ function Header() {
 
   return (
     <header className={isScrolled ? 'scrolled' : ''}>
-      {!isScrolled && (
-      <div className="header_contact_card">
+      <div className={`header_contact_card${isScrolled ? ' hidden' : ''}`}>
         <div className="contact_card">
           <i className="bx bxl-whatsapp contact_card_icon" />
           <a href="https://api.whatsapp.com/send?phone=250788933063&text=Hello, more information!" className="header_contact_button">
@@ -39,7 +46,6 @@ function Header() {
           </a>
         </div>
       </div>
-      )}
       <nav>
         <Link to="/" className="logo" aria-label="logo" onClick={() => setActiveNav('#home')}>
           <img src={favicon} alt="logo" />

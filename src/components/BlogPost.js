@@ -1,22 +1,29 @@
-import PropTypes from 'prop-types'; // Import PropTypes
+import PropTypes from 'prop-types';
+import './styles/BlogPost.css';
 
 function BlogPost({
   title, content, metaDescription, keywords,
 }) {
   return (
-    <div className="blog-post">
-      <h1>{title}</h1>
+    <div className="blog-post-page">
       <meta name="description" content={metaDescription} />
       <meta name="keywords" content={keywords} />
 
-      <div className="content">
+      <div className="blog-post-header">
+        <h1 className="blog-post-title">{title}</h1>
+        <hr className="blog-post-divider" />
+      </div>
+
+      <div className="blog-post-content">
+        {/* eslint-disable-next-line react/no-danger */}
         <div dangerouslySetInnerHTML={{ __html: content }} />
       </div>
 
-      <div className="cta">
+      <div className="blog-post-cta">
         <p>
           Interested in professional translation services?
-          <a href="/contact">Contact us</a>
+          {' '}
+          <a href="/contact" className="blog-post-cta-link">Contact us</a>
           {' '}
           today!
         </p>
@@ -26,10 +33,10 @@ function BlogPost({
 }
 
 BlogPost.propTypes = {
-  title: PropTypes.string.isRequired, // Ensure title is a string
-  content: PropTypes.string.isRequired, // Ensure content is a string
-  metaDescription: PropTypes.string.isRequired, // Ensure metaDescription is a string
-  keywords: PropTypes.string.isRequired, // Ensure keywords is a string
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  metaDescription: PropTypes.string.isRequired,
+  keywords: PropTypes.string.isRequired,
 };
 
 export default BlogPost;

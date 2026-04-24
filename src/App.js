@@ -3,24 +3,24 @@ import {
   useLocation, Routes, Route, useParams,
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import DOMPurify from 'dompurify';
-// import MainLayout from './components/MainLayout';
-import Home from './routes/Home';
-import About from './routes/About';
-import Services from './routes/Services';
-import Translation from './routes/Translation';
-import FAQ from './routes/FAQ';
-import Contact from './routes/Contact';
-import Footer from './routes/footer';
 import Header from './components/Header';
 import ScrollUp from './components/scrollUp';
-import Quotation from './components/Quotation';
-// import BlogPost from './components/BlogPost';
-import Blog from './routes/blog';
 import blogContent from './components/blogContent';
 import './components/styles/BlogPost.css';
+
+/* Route-level code splitting — each page is its own JS chunk loaded on demand */
+const Home = lazy(() => import('./routes/Home'));
+const About = lazy(() => import('./routes/About'));
+const Services = lazy(() => import('./routes/Services'));
+const Translation = lazy(() => import('./routes/Translation'));
+const FAQ = lazy(() => import('./routes/FAQ'));
+const Contact = lazy(() => import('./routes/Contact'));
+const Footer = lazy(() => import('./routes/footer'));
+const Quotation = lazy(() => import('./components/Quotation'));
+const Blog = lazy(() => import('./routes/blog'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -136,23 +136,24 @@ function App() {
       <ScrollToTop />
       <ScrollUp />
       <Header />
-      {/* <MainLayout /> */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/Services" element={<Services />} />
-        <Route path="/Translation" element={<Translation />} />
-        <Route path="/FAQ" element={<FAQ />} />
-        <Route path="/contact" element={<Contact />}>
-          <Route path="quotation" element={<Quotation />} />
-        </Route>
-        <Route path="/footer" element={<Footer />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route
-          path="/blog/:id"
-          element={<BlogPostContent blogContent={blogContent} />}
-        />
-      </Routes>
+      <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/Services" element={<Services />} />
+          <Route path="/Translation" element={<Translation />} />
+          <Route path="/FAQ" element={<FAQ />} />
+          <Route path="/contact" element={<Contact />}>
+            <Route path="quotation" element={<Quotation />} />
+          </Route>
+          <Route path="/footer" element={<Footer />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route
+            path="/blog/:id"
+            element={<BlogPostContent blogContent={blogContent} />}
+          />
+        </Routes>
+      </Suspense>
     </>
   );
 }
@@ -162,6 +163,8 @@ function BlogPostContent({ blogContent }) {
   const content = blogContent[id];
 
   if (!content) return <p className="blog-not-found">Blog post not found!</p>;
+
+  const canonicalUrl = `https://www.wikatranslate.net/blog/${id}`;
 
   return (
     <div className="blog-container">
@@ -173,31 +176,68 @@ function BlogPostContent({ blogContent }) {
         </title>
         <meta name="description" content={content.metaDescription} />
         <meta name="keywords" content={content.keywords} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={`${content.title} | Wika Translate`} />
+        <meta property="og:description" content={content.metaDescription} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${content.title} | Wika Translate`} />
+        <meta name="twitter:description" content={content.metaDescription} />
+        <meta name="twitter:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: content.title,
+            description: content.metaDescription,
+            author: {
+              '@type': 'Organization',
+              name: content.author,
+              url: 'https://www.wikatranslate.net/',
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'Wika Translate',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://www.wikatranslate.net/images/logo_wika_translate.png',
+              },
+            },
+            datePublished: content.datePublished,
+            dateModified: content.datePublished,
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': canonicalUrl,
+            },
+            image: 'https://www.wikatranslate.net/images/og-image.jpg',
+            url: canonicalUrl,
+          })}
+        </script>
       </Helmet>
       <h1 className="blog-title">{content.title}</h1>
+      {/* eslint-disable react/no-danger */}
       <div
         className="blog-content"
         dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content.content) }}
       />
+      {/* eslint-enable react/no-danger */}
     </div>
   );
 }
 
 BlogPostContent.propTypes = {
-  blogContent: PropTypes.shape({
-    1: PropTypes.shape({
+  blogContent: PropTypes.objectOf(
+    PropTypes.shape({
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       metaDescription: PropTypes.string.isRequired,
       keywords: PropTypes.string.isRequired,
+      datePublished: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
     }),
-    2: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-      metaDescription: PropTypes.string.isRequired,
-      keywords: PropTypes.string.isRequired,
-    }),
-  }).isRequired,
+  ).isRequired,
 };
 
 export default App;

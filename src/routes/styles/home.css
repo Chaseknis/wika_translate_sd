@@ -1,43 +1,79 @@
+/* ── Hero section ── */
 .home {
   width: 100%;
-
-  /* height: 100vh; */
+  min-height: 100vh;
   position: relative;
+  z-index: 2;
   padding: 0 5%;
-
-  /* overflow: hidden; */
 }
 
-.bgVideo {
-  width: 100%;
-  height: 100vh;
+/* iOS Safari dynamic toolbar: use dvh when supported */
+@supports (min-height: 100dvh) {
+  .home {
+    /* stylelint-disable-next-line unit-no-unknown, csstree/validator */
+    min-height: 100dvh;
+  }
+}
+
+/* ── Home page only: video is a direct child of page_container → fixed full-page ── */
+.page_container > .bgVideo {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
-  z-index: -1; /* Ensure this is behind other elements */
-  pointer-events: painted;
+  z-index: 1;
 }
 
+/* ── Static fallback (home page mobile only) ── */
+.video-fallback {
+  display: none;
+}
+
+/* ── Gradient overlay covers only the hero section ── */
 .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: linear-gradient(-25deg, rgba(53, 44, 20, 0.7) 0%, rgba(37, 31, 10, 0.9) 100%);
-  z-index: 0; /* Ensure this is behind text */
+  z-index: 1;
+}
+
+/* ── Hero content must sit above its own overlay ── */
+.home_container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Mobile: hide home-page video only; inner-page videos keep playing ── */
+@media (max-width: 767px) {
+  .page_container > .bgVideo {
+    display: none;
+  }
+
+  .video-fallback {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: url(/src/assets/image3.webp) center / cover no-repeat;
+    z-index: 1;
+  }
+}
+
+/* ── All post-hero sections and footer stack above the fixed video ── */
+.page_container > .about,
+.page_container > .services,
+.page_container > .translation,
+.page_container > .faq,
+.page_container > .contact,
+.page_container > footer {
+  position: relative;
+  z-index: 2;
 }
 
 .home_wrapper {
   width: 100%;
-  position: relative; /* Make sure this is positioned relative for z-index to work */
+  position: relative;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  z-index: 1; /* Place this above the overlay */
-  padding-top: 32%;
+  z-index: 2;
+  padding-top: 28%;
 }
 
 .half_one_wrapper {
@@ -63,6 +99,12 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+
+.quotation_button span,
+.quotation_button > * {
+  position: relative;
+  z-index: 1;
 }
 
 .best_ad > span:nth-of-type(1) {
@@ -109,22 +151,25 @@ h1 {
 }
 
 .home_subtitle {
-  width: 100%;
-  color: #b11810;
-  font-style: italic;
-  font-size: 14px;
-  padding: 0.5rem;
-  margin-top: 1rem;
-  text-align: center;
+  display: inline-block;
+  color: #b7312a;
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  margin-top: 1.25rem;
   background-color: #ffca7a;
+  border-left: 3px solid #b7312a;
 }
 
 .home_paragraph {
   width: 100%;
-  font-size: 0.7rem;
+  font-size: 0.82rem;
   color: #d2c79f;
-  font-style: italic;
-  line-height: 15px;
+  line-height: 1.7;
+  margin-top: 0.5rem;
 }
 
 .socials_and_scroll {
@@ -138,18 +183,42 @@ h1 {
 }
 
 .quotation_button {
-  font-size: 10px;
-  margin: 1rem 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  margin: 1.25rem 0;
   background: transparent;
   color: #ffca7a;
-  padding: 8px 12px;
+  padding: 14px 24px;
   border: 1px solid #ffca7a;
   text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.35s ease;
+  min-height: 44px;
+}
+
+.quotation_button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #ffca7a;
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 0;
+}
+
+.quotation_button:hover::before {
+  transform: translateX(0);
 }
 
 .quotation_button:hover {
   color: #1a3c34;
-  background-color: #ffca7a;
+}
+
+.home_title h1 {
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 @media screen and (min-width: 576px) {
@@ -218,18 +287,17 @@ h1 {
   }
 
   .home_title {
-    font-size: 3.2rem;
+    font-size: 2.5rem;
   }
 
   .home_subtitle {
-    width: 70%;
-    font-size: 18px;
+    font-size: 0.8rem;
     margin-top: 2rem;
   }
 
   .home_paragraph {
     width: 50%;
-    line-height: 20px;
+    line-height: 1.75;
     padding-bottom: 1rem;
   }
 
@@ -239,7 +307,196 @@ h1 {
 
   .quotation_button {
     font-size: 0.8rem;
-    margin: 1rem 0;
-    padding: 12px 16px;
+    margin: 1.25rem 0;
+    padding: 14px 28px;
   }
+}
+
+/* ── Animated section HR underlines ── */
+.about_page_title hr,
+.services-title hr,
+.faq-title hr,
+.translation_page_title hr {
+  transform-origin: left;
+  animation: growLine 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes growLine {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ── Home page FAQ: text left, cards right ── */
+@media screen and (min-width: 992px) {
+  .faq-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+
+  .faq-container > .faq-header {
+    width: 45%;
+    flex-shrink: 0;
+  }
+
+  .faq-container > .faq-content-wrapper {
+    flex: 1;
+  }
+}
+
+/* ── Home page blog section ── */
+.home-blog-section {
+  padding: 3rem 5% 3.5rem;
+}
+
+.home-blog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.home-blog-header h2 {
+  color: #1a3c34;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+}
+
+.home-blog-header h2 hr {
+  width: 60px;
+  border: none;
+  height: 3px;
+  background-color: #b7312a;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.home-blog-view-all {
+  color: #b7312a;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  transition: color 0.25s ease;
+  white-space: nowrap;
+}
+
+.home-blog-view-all:hover {
+  color: #1a3c34;
+}
+
+@media screen and (min-width: 768px) {
+  .home-blog-section {
+    padding: 3.5rem 5% 4rem;
+  }
+
+  .home-blog-header h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .home-blog-section {
+    padding: 4rem 5% 5rem;
+  }
+
+  .home-blog-header h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* ── Home page blog list grid ── */
+.blog-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media screen and (min-width: 640px) {
+  .blog-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Blog preview cards ── */
+.blog-preview {
+  background:
+    linear-gradient(
+      -25deg,
+      rgba(53, 44, 20, 0.75) 0%,
+      rgba(37, 31, 10, 0.85) 100%
+    );
+  border: 1px solid rgba(255, 202, 122, 0.12);
+  border-left: 3px solid #b7312a;
+  padding: 1.75rem 1.5rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
+}
+
+.blog-preview:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+  border-left-color: #ffca7a;
+}
+
+.blog-preview h3 {
+  color: #ffca7a;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin: 0 0 0.75rem;
+}
+
+.blog-preview p {
+  color: #d2c79f;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  margin: 0 0 1.25rem;
+  flex: 1;
+}
+
+.blog-preview a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #ffca7a;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.blog-preview a::after {
+  content: '→';
+  transition: transform 0.25s ease;
+}
+
+.blog-preview a:hover {
+  border-bottom-color: rgba(255, 202, 122, 0.5);
+}
+
+.blog-preview a:hover::after {
+  transform: translateX(4px);
+}
+
+/* ── About banner card hover ── */
+.about_banner_card_wrapper {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about_banner_card_wrapper:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(183, 49, 42, 0.4);
 }
