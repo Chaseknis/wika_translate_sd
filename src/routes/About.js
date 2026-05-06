@@ -1,12 +1,14 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import './styles/about.css';
-import LazyLoad from 'react-lazyload'; // Import LazyLoad
+import LazyLoad from 'react-lazyload';
 import image3 from '../assets/image3.webp';
 import videoBg5 from '../assets/videoBg5.mp4';
 import SiteFooter from '../components/SiteFooter';
+import { useTranslation } from '../contexts/LanguageContext';
 
 function About() {
+  const { t } = useTranslation();
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -18,20 +20,18 @@ function About() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
+    setActiveIndex(0);
+  }, [t]);
+
+  useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % 3); // Rotate between 0, 1, and 2
-    }, 3000); // Change every 3 seconds
+      setActiveIndex((prevIndex) => (prevIndex + 1) % 3);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
-  const aboutTitles = [
-    ['Global', ' Communication', ' Made Easy'],
-    ['Precision in', ' Multilingual', ' Services'],
-    ['Dedicated to', ' Bridging', ' Language Gaps'],
-  ];
 
   return (
     <>
-      {/* ✅ SEO Metadata & Canonical Tag */}
       <Helmet>
         <title>About Us - Wika Translate | Professional Translation Agency in Rwanda</title>
         <meta name="description" content="Learn about Wika Translate — a leading professional translation and interpretation agency based in Kigali, Rwanda. With 800+ expert linguists, we serve businesses and individuals worldwide in 150+ languages." />
@@ -49,34 +49,25 @@ function About() {
       </Helmet>
       <section className="about" id="about">
         <div className="about_title_main_container">
-          <video src={videoBg5} className="bgVideo" autoPlay loop muted playsInline>
+          <video ref={videoRef} src={videoBg5} className="bgVideo" autoPlay loop muted playsInline preload="none" onError={(e) => { e.target.style.display = 'none'; }}>
             <track kind="captions" srcLang="en" label="English" />
           </video>
-          {/* <div className="overlay" /> */}
           <div className="about_main_title_wrapper">
             <div className="about_best_ad">
               <h2>
-                About Us
+                {t.about.badge}
                 <hr />
               </h2>
             </div>
             <div className="about_main_title">
               <h1 className="title">
-                <span className="stroke_text">{aboutTitles[activeIndex][0]}</span>
-                <span>{aboutTitles[activeIndex][1]}</span>
-                <span>{aboutTitles[activeIndex][2]}</span>
+                <span className="stroke_text">{t.about.heroTitles[activeIndex][0]}</span>
+                <span>{t.about.heroTitles[activeIndex][1]}</span>
+                <span>{t.about.heroTitles[activeIndex][2]}</span>
               </h1>
             </div>
             <div className="about_main_title_paragraph_wrapper">
-              <p className="about_main_title_paragraph">
-                Wika Translate is your gateway to seamless communication in a multilingual world.
-                Based in Kigali, we specialize in certified translation, simultaneous
-                interpretation, and language solutions tailored to your needs. Our team of
-                seasoned language experts is committed to bridging cultural and linguistic
-                gaps with precision and professionalism. Whether it’s legal documents,
-                international conferences, or everyday communication, Wika Translate ensures
-                clarity, accuracy, and excellence in every service we provide.
-              </p>
+              <p className="about_main_title_paragraph">{t.about.heroParagraph}</p>
             </div>
           </div>
           <div className="overlay" />
@@ -87,35 +78,20 @@ function About() {
             <div className="about_title_container">
               <div className="about_page_title">
                 <h2>
-                  About Us
+                  {t.about.title}
                   <hr />
                 </h2>
-                <p>
-                  Wika Translate is a fast-growing, professional translation agency offering expert
-                  language solutions for businesses and individuals worldwide. Specializing in
-                  legal, technical, and certified translations, we deliver fast, accurate,
-                  and culturally relevant services in over 150 languages, including Kinyarwanda,
-                  English, French, Swahili, Arabic, and German. Trusted by global companies
-                  and organizations, we also provide conference interpreting, business translation,
-                  interpretation equipment rental, and multilingual support,
-                  ensuring clear communication across diverse industries in Rwanda, Africa,
-                  and globally.
-                </p>
+                <p>{t.about.p1}</p>
               </div>
-              <p className="second_paragraph">
-                Wika Translate serves as a hub for language experts from across the globe,
-                boasting a network of over 800 translators and interpreters. With this extensive
-                pool of talent, we possess the expertise and capability to consistently
-                deliver high-quality services to our clients swiftly and efficiently.
-              </p>
+              <p className="second_paragraph">{t.about.p2}</p>
               <div className="about_banner_wrapper">
                 <div className="about_banner_card_wrapper">
                   <span>10,000,000+</span>
-                  <p>Words Translated</p>
+                  <p>{t.about.wordsTranslated}</p>
                 </div>
                 <div className="about_banner_card_wrapper">
                   <span>10,000+</span>
-                  <p>Clients Served</p>
+                  <p>{t.about.clientsServed}</p>
                 </div>
                 <div>
                   <a target="_blank" href="https://www.goodfirms.co/company/wika-translate" rel="noreferrer">

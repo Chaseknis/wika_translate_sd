@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import favicon from '../assets/new_logo.png';
+import favicon from '../assets/new_logo_sm.png';
 import './styles/header.css';
+import { useTranslation } from '../contexts/LanguageContext';
 
 function Header() {
   const [toggle, setToggle] = useState(false);
   const [activeNav, setActiveNav] = useState('#home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t, language, setLanguage } = useTranslation();
 
   useEffect(() => {
     let rafId = null;
@@ -48,7 +50,7 @@ function Header() {
       </div>
       <nav>
         <Link to="/" className="logo" aria-label="logo" onClick={() => setActiveNav('#home')}>
-          <img src={favicon} alt="logo" />
+          <img src={favicon} alt="logo" width="60" height="38" />
         </Link>
         <div className={toggle ? 'nav_menu show_menu' : 'nav_menu'}>
           <ul>
@@ -59,7 +61,7 @@ function Header() {
                 className={activeNav === '#home' ? 'nav_link active_link' : 'nav_link'}
               >
                 <i className="uil uil-estate nav_icon" />
-                Home
+                {t.nav.home}
               </Link>
             </li>
             <li>
@@ -69,19 +71,9 @@ function Header() {
                 className={activeNav === '#about' ? 'nav_link active_link' : 'nav_link'}
               >
                 <i className="uil uil-users-alt nav_icon" />
-                About
+                {t.nav.about}
               </Link>
             </li>
-            {/* <li>
-              <Link
-                to="/industries"
-                onClick={() => setActiveNav('#industries')}
-                className={activeNav === '#industries' ? 'nav_link active_link' : 'nav_link'}
-              >
-                <i className="uil uil-globe nav_icon" />
-                Industries
-              </Link>
-            </li> */}
             <li>
               <Link
                 to="/services"
@@ -89,7 +81,7 @@ function Header() {
                 className={activeNav === '#services' ? 'nav_link active_link' : 'nav_link'}
               >
                 <i className="uil uil-briefcase-alt nav_icon" />
-                Services
+                {t.nav.services}
               </Link>
             </li>
             <li>
@@ -99,7 +91,7 @@ function Header() {
                 className={activeNav === '#translation' ? 'nav_link active_link' : 'nav_link'}
               >
                 <i className="uil uil-language nav_icon" />
-                Translation
+                {t.nav.translation}
               </Link>
             </li>
             <li>
@@ -109,7 +101,7 @@ function Header() {
                 className={activeNav === '#faq' ? 'nav_link active_link' : 'nav_link'}
               >
                 <i className="uil uil-question nav_icon" />
-                FAQ
+                {t.nav.faq}
               </Link>
             </li>
             <li>
@@ -119,7 +111,7 @@ function Header() {
                 className={activeNav === '#contact' ? 'nav_link active_link' : 'nav_link'}
               >
                 <i className="uil uil-message nav_icon" />
-                Contact
+                {t.nav.contact}
               </Link>
             </li>
           </ul>
@@ -134,8 +126,35 @@ function Header() {
           />
         </div>
 
-        <div className="nav_toggle" onClick={handleToggle} onKeyDown={handleToggle} role="button" tabIndex={0} aria-label="Open navigation">
-          <i className="uil uil-bars" />
+        <div className="nav_right">
+          <div className="lang_switcher">
+            <button
+              type="button"
+              className={`lang_btn${language === 'en' ? ' lang_active' : ''}`}
+              onClick={() => setLanguage('en')}
+            >
+              EN
+            </button>
+            <span className="lang_divider">|</span>
+            <button
+              type="button"
+              className={`lang_btn${language === 'fr' ? ' lang_active' : ''}`}
+              onClick={() => setLanguage('fr')}
+            >
+              FR
+            </button>
+            <span className="lang_divider">|</span>
+            <button
+              type="button"
+              className={`lang_btn${language === 'ar' ? ' lang_active' : ''}`}
+              onClick={() => setLanguage('ar')}
+            >
+              ع
+            </button>
+          </div>
+          <div className="nav_toggle" onClick={handleToggle} onKeyDown={handleToggle} role="button" tabIndex={0} aria-label="Open navigation">
+            <i className="uil uil-bars" />
+          </div>
         </div>
       </nav>
     </header>

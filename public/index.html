@@ -32,15 +32,37 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <!-- Preconnect: resolve DNS + TLS handshake before fetching icon CSS -->
+    <!-- Preconnect hints (max 4 to avoid Lighthouse warning) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preconnect" href="https://unicons.iconscout.com" crossorigin>
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-    <link rel="dns-prefetch" href="https://assets.goodfirms.co">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <!-- Google Fonts — loaded non-blocking so it doesn't stall first paint -->
+    <link rel="preload" as="style"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    </noscript>
+
+    <!-- Icon CSS — loaded non-blocking; icons appear slightly after paint -->
+    <link rel="preload" as="style"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"></noscript>
+
+    <link rel="preload" as="style"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+      onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"></noscript>
+
+    <!-- font-display: swap for icon web fonts so text isn't invisible while they load -->
+    <style>
+      @font-face { font-family: 'boxicons'; font-display: swap; src: local('boxicons'); }
+      @font-face { font-family: 'unicons'; font-display: swap; src: local('unicons'); }
+    </style>
+
     <title>Wika Translate - Professional Translation &amp; Interpretation Services in Rwanda</title>
   </head>
   <body>

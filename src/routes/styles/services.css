@@ -11,12 +11,6 @@
   z-index: 1;
 }
 
-@media (max-width: 767px) {
-  .about_title_main_container > .bgVideo {
-    display: none;
-  }
-}
-
 .services {
   width: 100%;
   padding: 5%;

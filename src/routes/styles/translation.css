@@ -4,12 +4,6 @@
   z-index: 1;
 }
 
-@media (max-width: 767px) {
-  .about_title_main_container > .bgVideo {
-    display: none;
-  }
-}
-
 .translation {
   max-width: 100%;
   overflow: hidden;
@@ -106,7 +100,7 @@
 }
 
 .step-content.open {
-  max-height: 200px; /* Set max-height based on expected content size */
+  max-height: 600px;
   opacity: 1;
 }
 

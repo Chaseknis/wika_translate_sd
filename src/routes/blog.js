@@ -51,7 +51,7 @@ function Blog() {
 
       {/* ── Hero ── */}
       <div className="about_title_main_container">
-        <video ref={videoRef} src={videoBg5} className="bgVideo" autoPlay loop muted playsInline>
+        <video ref={videoRef} src={videoBg5} className="bgVideo" autoPlay loop muted playsInline preload="none" onError={(e) => { e.target.style.display = 'none'; }}>
           <track kind="captions" srcLang="en" label="English" />
         </video>
         <div className="about_main_title_wrapper">

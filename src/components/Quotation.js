@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
-import Select from 'react-select'; // Ensure you import Select from react-select
-import countryList from 'react-select-country-list'; // Import country list from react-select-country-list
+import Select from 'react-select';
+import countryList from 'react-select-country-list';
 import './styles/quotation.css';
 import ContactDetails from './contactDetails';
+import { useTranslation } from '../contexts/LanguageContext';
 
 function Quotation() {
+  const { t } = useTranslation();
+  const qt = t.quotation;
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -24,7 +28,7 @@ function Quotation() {
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [phone, setPhone] = useState('');
-  const [country, setCountry] = useState(null); // For selected country
+  const [country, setCountry] = useState(null);
 
   const validateEmail = (email) => {
     const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -80,8 +84,8 @@ function Quotation() {
       if (key === 'file' && !formData[key]) return;
       form.append(key, formData[key]);
     });
-    form.append('phone', phone); // Add phone number with country code
-    form.append('location', country.value); // Add selected country value
+    form.append('phone', phone);
+    form.append('location', country.value);
 
     try {
       const response = await fetch('https://getform.io/f/amdpvqrb', {
@@ -102,13 +106,13 @@ function Quotation() {
           message: '',
           file: null,
         });
-        setPhone(''); // Reset phone input
-        setCountry(null); // Reset country selection
+        setPhone('');
+        setCountry(null);
         setSuccessMessage('Form submitted successfully!');
       } else {
         setError('Form submission failed. Please try again.');
       }
-    } catch (error) {
+    } catch (err) {
       setError('An error occurred while submitting the form.');
     } finally {
       setIsSubmitting(false);
@@ -120,15 +124,10 @@ function Quotation() {
       <div className="text-section">
         <div className="text_section_wrapper">
           <h2>
-            Get a Quotation
+            {qt.title}
             <hr />
           </h2>
-          <p>
-            Wika Translate serves as a hub for language experts from across the globe,
-            boasting a network of over 800 translators and interpreters. With this extensive
-            pool of talent, we possess the expertise and capability to consistently deliver
-            high-quality services to our clients swiftly and efficiently.
-          </p>
+          <p>{qt.p1}</p>
         </div>
         <ContactDetails />
       </div>
@@ -139,61 +138,55 @@ function Quotation() {
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_next" value="http://127.0.0.1:5555/#contact-us" />
 
-          {/* Full Name */}
           <input
             type="text"
             name="name"
-            placeholder="Full Name"
+            placeholder={qt.fullName}
             className="input"
             value={formData.name}
             onChange={handleChange}
             required
           />
 
-          {/* Phone Number with Country Code */}
           <PhoneInput
             country="us"
             value={phone}
-            onChange={(phone) => setPhone(phone)}
+            onChange={(p) => setPhone(p)}
             inputClass="input"
             className="phone_input"
             required
           />
 
-          {/* Email Address */}
           <input
             type="email"
             name="email"
-            placeholder="Email Address"
+            placeholder={qt.email}
             className="input"
             value={formData.email}
             onChange={handleChange}
             required
           />
         </div>
-        {/* Country Selection */}
+
         <Select
-          options={countryList().getData()} // Get country list data
+          options={countryList().getData()}
           value={country}
           onChange={setCountry}
-          placeholder="Select Your Country"
+          placeholder={qt.country}
           className="select_country"
           required
         />
 
         <div className="quotation_input_wrapper">
-
-          {/* Organization */}
           <input
             type="text"
             name="organization"
-            placeholder="Organization"
+            placeholder={qt.organization}
             className="input"
             value={formData.organization}
             onChange={handleChange}
           />
 
-          {/* Service Inquiry */}
           <select
             name="service"
             className="input"
@@ -201,40 +194,37 @@ function Quotation() {
             onChange={handleChange}
             required
           >
-            <option value="" disabled>Select a Service</option>
-            <option value="translation">Translation</option>
-            <option value="interpretation">Interpretation</option>
-            <option value="subtitling">Subtitling</option>
-            <option value="transcription">Transcription</option>
-            <option value="localization">Localization</option>
-            <option value="online-interpretation">Online Interpretation</option>
+            <option value="" disabled>{qt.service}</option>
+            <option value="translation">{qt.serviceOptions.translation}</option>
+            <option value="interpretation">{qt.serviceOptions.interpretation}</option>
+            <option value="subtitling">{qt.serviceOptions.subtitling}</option>
+            <option value="transcription">{qt.serviceOptions.transcription}</option>
+            <option value="localization">{qt.serviceOptions.localization}</option>
+            <option value="online-interpretation">{qt.serviceOptions.onlineInterpretation}</option>
           </select>
         </div>
 
         <div className="quotation_input_wrapper">
-          {/* Source Language */}
           <input
             type="text"
             name="sourceLanguage"
-            placeholder="Source Language"
+            placeholder={qt.sourceLanguage}
             className="input"
             value={formData.sourceLanguage}
             onChange={handleChange}
             required
           />
 
-          {/* Target Language */}
           <input
             type="text"
             name="targetLanguage"
-            placeholder="Target Language"
+            placeholder={qt.targetLanguage}
             className="input"
             value={formData.targetLanguage}
             onChange={handleChange}
             required
           />
 
-          {/* File Upload */}
           <input
             type="file"
             name="file"
@@ -243,10 +233,9 @@ function Quotation() {
           />
         </div>
 
-        {/* Message */}
         <textarea
           name="message"
-          placeholder="Message"
+          placeholder={qt.message}
           rows="8"
           className="input"
           value={formData.message}
@@ -254,9 +243,8 @@ function Quotation() {
           required
         />
 
-        {/* Submit Button */}
         <button type="submit" className="button" disabled={isSubmitting}>
-          <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+          <span>{isSubmitting ? qt.sending : qt.send}</span>
         </button>
       </form>
     </div>

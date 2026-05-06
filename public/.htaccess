@@ -1,0 +1,40 @@
+# MP4 MIME type and range-request support (required for HTML5 video on some servers)
+<IfModule mod_mime.c>
+  AddType video/mp4 .mp4
+</IfModule>
+
+Header set Accept-Ranges bytes
+
+# Apache cache headers (cPanel / shared hosting)
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Hashed JS/CSS bundles — CRA adds content hash to filenames, safe to cache forever
+  <FilesMatch "\.(js|css)$">
+    ExpiresDefault "access plus 1 year"
+    Header append Cache-Control "public, immutable"
+  </FilesMatch>
+
+  # Images and fonts
+  <FilesMatch "\.(webp|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot)$">
+    ExpiresDefault "access plus 1 year"
+    Header append Cache-Control "public, immutable"
+  </FilesMatch>
+
+  # HTML — revalidate so users always get the latest build
+  <FilesMatch "\.html$">
+    ExpiresDefault "access plus 0 seconds"
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# React Router — serve index.html for all routes
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

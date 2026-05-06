@@ -1,4 +1,11 @@
 import './app.css';
+import './routes/styles/home.css';
+import './routes/styles/about.css';
+import './routes/styles/services.css';
+import './routes/styles/translation.css';
+import './routes/styles/faq.css';
+import './routes/styles/contact.css';
+import './routes/styles/footer.css';
 import {
   useLocation, Routes, Route, useParams,
 } from 'react-router-dom';
@@ -10,6 +17,8 @@ import Header from './components/Header';
 import ScrollUp from './components/scrollUp';
 import blogContent from './components/blogContent';
 import './components/styles/BlogPost.css';
+import './components/styles/socials.css';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 /* Route-level code splitting — each page is its own JS chunk loaded on demand */
 const Home = lazy(() => import('./routes/Home'));
@@ -36,7 +45,7 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <>
+    <LanguageProvider>
       <Helmet>
         {/* Charset & Compatibility */}
         <meta charset="UTF-8" />
@@ -154,7 +163,7 @@ function App() {
           />
         </Routes>
       </Suspense>
-    </>
+    </LanguageProvider>
   );
 }
 

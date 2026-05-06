@@ -101,8 +101,7 @@
   justify-content: flex-start;
 }
 
-.quotation_button span,
-.quotation_button > * {
+.quotation_button span {
   position: relative;
   z-index: 1;
 }

@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import favicon from '../assets/new_logo.png';
 import '../routes/styles/footer.css';
+import { useTranslation } from '../contexts/LanguageContext';
 
 function SiteFooter() {
+  const { t } = useTranslation();
+
   return (
     <footer>
       <div className="footer-container">
@@ -18,9 +21,7 @@ function SiteFooter() {
                 loading="lazy"
               />
             </Link>
-            <p className="brand-description">
-              Wika Translate Ltd offers one-stop solutions to your translation needs.
-            </p>
+            <p className="brand-description">{t.footer.brand}</p>
             <div className="social-links">
               <div className="footer_socials_wrapper">
                 <a href="https://www.linkedin.com/company/81655771" className="socials_icon socials-2" target="_blank" aria-label="LinkedIn" rel="noreferrer">
@@ -48,44 +49,41 @@ function SiteFooter() {
           </div>
 
           <div className="links-section">
-            <h3 className="links-title">Useful Links</h3>
+            <h3 className="links-title">{t.footer.usefulLinks}</h3>
             <div className="links-container">
               <ul className="links-list">
-                <li><Link to="/" className="link">Home</Link></li>
-                <li><Link to="/contact" className="link">Contact Us</Link></li>
-                <li><Link to="/about" className="link">About Us</Link></li>
-                <li><Link to="/Services" className="link">Services</Link></li>
+                <li><Link to="/" className="link">{t.footer.links.home}</Link></li>
+                <li><Link to="/contact" className="link">{t.footer.links.contact}</Link></li>
+                <li><Link to="/about" className="link">{t.footer.links.about}</Link></li>
+                <li><Link to="/Services" className="link">{t.footer.links.services}</Link></li>
               </ul>
               <ul className="links-list">
-                <li><Link to="/blog" className="link">Blog</Link></li>
-                <li><Link to="/FAQ" className="link">FAQ</Link></li>
-                <li><Link to="/Translation" className="link">Translation</Link></li>
+                <li><Link to="/blog" className="link">{t.footer.links.blog}</Link></li>
+                <li><Link to="/FAQ" className="link">{t.footer.links.faq}</Link></li>
+                <li><Link to="/Translation" className="link">{t.footer.links.translation}</Link></li>
               </ul>
             </div>
           </div>
 
           <div className="newsletter-section">
-            <h3 className="newsletter-title">Subscribe To Our Newsletter</h3>
+            <h3 className="newsletter-title">{t.footer.newsletter}</h3>
             <div className="newsletter-form">
               <form name="submit-to-google-sheet" className="form">
                 <input
                   type="email"
                   name="email"
                   required
-                  placeholder="Email Address"
+                  placeholder={t.footer.emailPlaceholder}
                   className="email-input"
                 />
                 <button type="submit" className="subscribe-button">
-                  Subscribe
+                  {t.footer.subscribe}
                   <i className="uil uil-message send-icon" />
                 </button>
               </form>
               <span id="msg" className="message" />
             </div>
-            <p className="newsletter-description">
-              Wika Translate Ltd constantly reaches out to
-              translators and interpreters to find the very best.
-            </p>
+            <p className="newsletter-description">{t.footer.newsletterDesc}</p>
           </div>
 
         </div>
@@ -93,11 +91,12 @@ function SiteFooter() {
         <div className="footer-bottom">
           <hr className="divider-line" />
           <div className="footer-bottom-content">
-            <span className="terms-text">Terms of use | Privacy Environmental Policy</span>
+            <span className="terms-text">{t.footer.terms}</span>
             <span className="copyrights">
               {'© '}
               {new Date().getFullYear()}
-              {' Wika Translate Ltd. All rights reserved'}
+              {' '}
+              {t.footer.rights}
             </span>
           </div>
         </div>
