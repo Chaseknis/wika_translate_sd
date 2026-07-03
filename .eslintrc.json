@@ -20,6 +20,31 @@
       "import/no-unresolved": "off",
       "no-shadow": "off"
     },
+    "overrides": [
+      {
+        "files": [
+          "src/routes/services/*.js",
+          "src/routes/cities/*.js",
+          "src/routes/Languages.js",
+          "src/routes/Sectors.js",
+          "src/routes/WhyWikaTranslate.js",
+          "src/routes/OurOffices.js",
+          "src/routes/Quote.js",
+          "src/components/blogContent.js",
+          "src/routes/FAQ.js"
+        ],
+        "rules": {
+          "max-len": "off",
+          "object-curly-newline": "off",
+          "object-property-newline": "off",
+          "react/jsx-one-expression-per-line": "off",
+          "react/no-unescaped-entities": "off",
+          "react/prop-types": "off",
+          "jsx-a11y/label-has-associated-control": "off",
+          "react/jsx-indent": "off"
+        }
+      }
+    ],
     "ignorePatterns": [
       "dist/",
       "build/"

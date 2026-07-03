@@ -131,7 +131,8 @@ function PriceCalculator() {
 
       {/* Source Language Selection */}
       <label htmlFor="sourceLanguage">
-        <select id="sourceLanguage" value={sourceLanguage} onChange={handleSourceLanguageChange}>
+        Translate from
+        <select id="sourceLanguage" aria-label="Source language" value={sourceLanguage} onChange={handleSourceLanguageChange}>
           {languages.map((lang) => (
             <option key={lang} value={lang}>{lang}</option>
           ))}
@@ -140,7 +141,8 @@ function PriceCalculator() {
 
       {/* Target Language Selection */}
       <label htmlFor="targetLanguage">
-        <select id="targetLanguage" value={targetLanguage} onChange={handleTargetLanguageChange}>
+        Translate to
+        <select id="targetLanguage" aria-label="Target language" value={targetLanguage} onChange={handleTargetLanguageChange}>
           {languages.map((lang) => (
             <option key={lang} value={lang}>{lang}</option>
           ))}

@@ -1,40 +1,58 @@
-# MP4 MIME type and range-request support (required for HTML5 video on some servers)
+# ── Directory index — serves react-snap pre-rendered HTML files ──
+DirectoryIndex index.html
+Options -Indexes
+
+# ── Sitemap & robots.txt — serve as-is, correct MIME ──
+<Files "sitemap.xml">
+  Header set Content-Type "application/xml; charset=UTF-8"
+</Files>
+
+# ── MIME types ──
 <IfModule mod_mime.c>
   AddType video/mp4 .mp4
+  AddType application/xml .xml
+  AddType text/plain .txt
 </IfModule>
 
+# ── Range requests (required for HTML5 video seek) ──
 Header set Accept-Ranges bytes
 
-# Apache cache headers (cPanel / shared hosting)
-
+# ── Long-lived cache for hashed assets, no-cache for HTML ──
 <IfModule mod_expires.c>
   ExpiresActive On
 
-  # Hashed JS/CSS bundles — CRA adds content hash to filenames, safe to cache forever
   <FilesMatch "\.(js|css)$">
     ExpiresDefault "access plus 1 year"
     Header append Cache-Control "public, immutable"
   </FilesMatch>
 
-  # Images and fonts
   <FilesMatch "\.(webp|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot)$">
     ExpiresDefault "access plus 1 year"
     Header append Cache-Control "public, immutable"
   </FilesMatch>
 
-  # HTML — revalidate so users always get the latest build
   <FilesMatch "\.html$">
     ExpiresDefault "access plus 0 seconds"
     Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>
 </IfModule>
 
-# React Router — serve index.html for all routes
+# ── React Router — serve index.html for all client-side routes ──
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+  RewriteRule ^sitemap\.xml$ - [L]
+  RewriteRule ^robots\.txt$ - [L]
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
+</IfModule>
+
+# ── Security headers ──
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>

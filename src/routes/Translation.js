@@ -50,21 +50,21 @@ function Translation() {
 
   return (
     <>
-      <Helmet>
-        <title>
-          Translation Services in Rwanda - Certified, Legal &amp; Technical | Wika Translate
-        </title>
-        <meta name="description" content="Professional certified translation services for legal, technical, and business documents. Kinyarwanda, French, English, Swahili, Arabic, German, and 150+ more languages. Fast turnaround. Based in Kigali, Rwanda." />
-        <meta name="keywords" content="translation services Kigali, certified translation Rwanda, legal translation Rwanda, technical translation Rwanda, Kinyarwanda translation, French translation Rwanda, document translation Kigali" />
+      <Helmet defer={false}>
+        <title>Certified Translation Services Rwanda | WIKA TRANSLATE Kigali</title>
+        <meta name="description" content="Legal, certified &amp; technical document translation in Rwanda. Kinyarwanda, French, English, Swahili, Arabic &amp; 150+ languages. Fast turnaround from WIKA TRANSLATE." />
+        <meta name="keywords" content="certified translation Rwanda, legal translation Rwanda, document translation Kigali, Kinyarwanda translation, French English translation Rwanda, technical translation Rwanda" />
         <link rel="canonical" href="https://www.wikatranslate.net/translation" />
-        <meta property="og:title" content="Translation Services in Rwanda | Certified, Legal &amp; Technical - Wika Translate" />
-        <meta property="og:description" content="Professional certified translation services for legal, technical, and business documents in 150+ languages. Fast turnaround. Based in Kigali, Rwanda." />
+        <meta property="og:site_name" content="WIKA TRANSLATE Ltd." />
+        <meta property="og:locale" content="en_RW" />
+        <meta property="og:title" content="Certified Translation Services Rwanda | WIKA TRANSLATE Kigali" />
+        <meta property="og:description" content="Legal, certified &amp; technical document translation in Rwanda. Kinyarwanda, French, English, Swahili, Arabic &amp; 150+ languages. Fast turnaround from WIKA TRANSLATE." />
         <meta property="og:url" content="https://www.wikatranslate.net/translation" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Translation Services in Rwanda | Certified, Legal &amp; Technical - Wika Translate" />
-        <meta name="twitter:description" content="Professional certified translation services for legal, technical, and business documents in 150+ languages. Fast turnaround. Based in Kigali, Rwanda." />
+        <meta name="twitter:title" content="Certified Translation Services Rwanda | WIKA TRANSLATE Kigali" />
+        <meta name="twitter:description" content="Legal, certified &amp; technical document translation in Rwanda. Kinyarwanda, French, English, Swahili, Arabic &amp; 150+ languages. Fast turnaround from WIKA TRANSLATE." />
         <meta name="twitter:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
       </Helmet>
       <section className="translation" id="translation">

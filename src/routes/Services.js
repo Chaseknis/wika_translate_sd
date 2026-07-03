@@ -31,21 +31,21 @@ function Services() {
 
   return (
     <>
-      <Helmet>
-        <title>
-          Services - Translation, Interpretation &amp; Equipment Rental | Wika Translate Rwanda
-        </title>
-        <meta name="description" content="Explore Wika Translate's professional language services: certified translation, simultaneous interpretation, equipment rental, subtitling, transcription, and localization in 150+ languages. Based in Kigali, Rwanda." />
-        <meta name="keywords" content="translation services Rwanda, simultaneous interpretation Kigali, interpretation equipment rental Rwanda, certified translation Rwanda, subtitling services, transcription services Rwanda, localization Rwanda" />
+      <Helmet defer={false}>
+        <title>Translation &amp; Interpretation Services Rwanda | WIKA TRANSLATE</title>
+        <meta name="description" content="Certified translation, simultaneous interpretation, equipment rental, transcription &amp; localization in 150+ languages. WIKA TRANSLATE Ltd., Kigali, Rwanda." />
+        <meta name="keywords" content="translation services Rwanda, simultaneous interpretation Kigali, interpretation equipment rental Rwanda, certified translation Rwanda, transcription services Rwanda, localization Rwanda" />
         <link rel="canonical" href="https://www.wikatranslate.net/services" />
-        <meta property="og:title" content="Services | Translation, Interpretation &amp; Equipment Rental - Wika Translate" />
-        <meta property="og:description" content="Professional translation, simultaneous interpretation, equipment rental, subtitling, transcription, and localization services in 150+ languages. Based in Kigali, Rwanda." />
+        <meta property="og:site_name" content="WIKA TRANSLATE Ltd." />
+        <meta property="og:locale" content="en_RW" />
+        <meta property="og:title" content="Translation &amp; Interpretation Services Rwanda | WIKA TRANSLATE" />
+        <meta property="og:description" content="Certified translation, simultaneous interpretation, equipment rental, transcription &amp; localization in 150+ languages. WIKA TRANSLATE Ltd., Kigali, Rwanda." />
         <meta property="og:url" content="https://www.wikatranslate.net/services" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Services | Translation, Interpretation &amp; Equipment Rental - Wika Translate" />
-        <meta name="twitter:description" content="Professional translation, simultaneous interpretation, equipment rental, subtitling, transcription, and localization services in 150+ languages. Based in Kigali, Rwanda." />
+        <meta name="twitter:title" content="Translation &amp; Interpretation Services Rwanda | WIKA TRANSLATE" />
+        <meta name="twitter:description" content="Certified translation, simultaneous interpretation, equipment rental, transcription &amp; localization in 150+ languages. WIKA TRANSLATE Ltd., Kigali, Rwanda." />
         <meta name="twitter:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
       </Helmet>
       <section className="services_page_content_section" id="services">

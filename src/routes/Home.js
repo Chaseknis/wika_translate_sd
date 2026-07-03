@@ -1,5 +1,7 @@
+/* eslint-disable react/jsx-indent, react/jsx-closing-tag-location, react/no-unescaped-entities, max-len */
 import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import videoBg5 from '../assets/videoBg5.mp4';
 import Socials from '../components/socials';
@@ -49,6 +51,7 @@ function Home() {
   }, [t]);
 
   useEffect(() => {
+    if (navigator.userAgent === 'ReactSnap') return undefined;
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % 3);
     }, 3000);
@@ -68,7 +71,21 @@ function Home() {
   const [showContactForm, setShowContactForm] = useState(true);
 
   return (
-    <main className="page_container">
+    <>
+      <Helmet defer={false}>
+        <title>Rwanda&#39;s #1 Translation &amp; Interpretation Services | WIKA TRANSLATE Kigali</title>
+        <meta name="description" content="WIKA TRANSLATE Ltd. — Rwanda's #1 translation &amp; interpretation company in Kigali. Certified, legal &amp; document translation, conference interpretation, equipment rental. 800+ translators, 150+ language pairs. Free quote in 10 min." />
+        <meta name="keywords" content="translation services Rwanda, translation company Rwanda, translation company Kigali, certified translation Rwanda, interpretation services Rwanda, document translation Rwanda, legal translation Rwanda, conference interpretation Kigali, simultaneous interpretation Rwanda, Kinyarwanda translation, French English translation Rwanda, Arabic translation Rwanda, sworn translation Rwanda, embassy translation Rwanda, NGO translation Rwanda, UN translation Rwanda, translation agency Rwanda, interpretation company Rwanda, best translation company Rwanda, professional translators Kigali, language services Rwanda, East Africa translation" />
+        <link rel="canonical" href="https://www.wikatranslate.net/" />
+        <meta property="og:title" content="Rwanda's #1 Translation &amp; Interpretation Services | WIKA TRANSLATE Kigali" />
+        <meta property="og:description" content="WIKA TRANSLATE Ltd. — Rwanda's #1 translation &amp; interpretation company in Kigali. Certified, legal &amp; document translation. 800+ translators, 150+ language pairs. Free quote in 10 min." />
+        <meta property="og:url" content="https://www.wikatranslate.net/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
+        <meta name="twitter:title" content="Rwanda's #1 Translation &amp; Interpretation Services | WIKA TRANSLATE Kigali" />
+        <meta name="twitter:description" content="WIKA TRANSLATE Ltd. — Rwanda's #1 translation &amp; interpretation company in Kigali. 800+ translators, 150+ language pairs. Free quote in 10 min." />
+      </Helmet>
+      <main className="page_container">
       <video
         ref={videoRef}
         src={videoBg5}
@@ -321,7 +338,7 @@ function Home() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
           >
-            {Object.keys(blogContent).map((id) => (
+            {Object.keys(blogContent).slice(0, 4).map((id) => (
               <motion.div key={id} className="blog-preview" variants={staggerItem}>
                 <h3>{blogContent[id].title}</h3>
                 <p>{blogContent[id].metaDescription}</p>
@@ -365,7 +382,7 @@ function Home() {
               <form id="form" action="https://formspree.io/f/xjvdgezn" method="POST" className="contact-form">
                 <input type="text" name="_honey" style={{ display: 'none' }} />
                 <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value="http://127.0.0.1:5555/#contact-us" />
+                <input type="hidden" name="_next" value="https://www.wikatranslate.net/contact" />
                 <div className="contact_details">
                   <input type="text" id="name" name="name" placeholder={t.contact.fullName} className="input" required />
                   <input type="text" id="phone" name="phone" placeholder={t.contact.phone} className="input" />
@@ -382,6 +399,7 @@ function Home() {
       </section>
       <SiteFooter />
     </main>
+    </>
   );
 }
 

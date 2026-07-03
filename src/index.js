@@ -1,18 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { hydrateRoot, createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const container = document.getElementById('root');
+const app = (
   <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// react-snap pre-renders pages into static HTML; hydrate when pre-rendered
+// content exists, otherwise do a fresh render (normal browser visit)
+if (container.hasChildNodes()) {
+  hydrateRoot(container, app);
+} else {
+  createRoot(container).render(app);
+}

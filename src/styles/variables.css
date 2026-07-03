@@ -1,0 +1,99 @@
+/*
+ * WIKA TRANSLATE — Design System Tokens
+ * Single source of truth for all colours, typography, spacing, and effects.
+ * Import this file at the top of index.css or app.css.
+ */
+
+:root {
+  /* ── Brand colours ── */
+  --color-gold:          #ffca7a;   /* primary accent / headings on dark */
+  --color-gold-dim:      #d2c79f;   /* body text on dark backgrounds */
+  --color-gold-hover:    #e8b55c;   /* gold hover state */
+  --color-red:           #b7312a;   /* secondary accent / HR lines / CTA buttons */
+  --color-red-hover:     #9e2722;   /* red hover */
+  --color-green-dark:    #1a3c34;   /* section headings on light / button hover */
+  --color-dark-1:        rgb(37, 31, 10);   /* gradient stop — darkest */
+  --color-dark-2:        rgb(53, 44, 20);   /* gradient stop — lighter dark */
+  --color-overlay:       rgba(37, 31, 10, 0.9);
+  --color-white:         #ffffff;
+  --color-black-soft:    #1f1f1f;
+
+  /* ── Gradient (shared across header, footer, hero, mobile nav) ── */
+  --gradient-dark: linear-gradient(-25deg, rgb(53, 44, 20) 0%, rgb(37, 31, 10) 100%);
+  --gradient-overlay: linear-gradient(-25deg, rgba(53, 44, 20, 0.7) 0%, rgba(37, 31, 10, 0.9) 100%);
+  --gradient-about-overlay: linear-gradient(-25deg, rgba(53, 44, 20, 0.65) 0%, rgba(26, 60, 52, 0.88) 100%);
+
+  /* ── Typography ── */
+  --font-family-base: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+
+  /* Scale (mobile-first, increased at breakpoints via media queries) */
+  --text-xs:   0.65rem;   /*  ~10.4 px — fine print, labels */
+  --text-sm:   0.70rem;   /*  ~11.2 px — footer text, captions */
+  --text-base: 0.80rem;   /*  ~12.8 px — body copy */
+  --text-md:   0.90rem;   /*  ~14.4 px — card text */
+  --text-lg:   1.00rem;   /*  ~16 px   — sub-headings */
+  --text-xl:   1.20rem;   /*  ~19.2 px — section titles mobile */
+  --text-2xl:  1.60rem;   /*  ~25.6 px — h1 mobile */
+  --text-3xl:  2.00rem;   /*  ~32 px   — h1 tablet */
+  --text-4xl:  2.50rem;   /*  ~40 px   — h1 desktop */
+
+  --font-weight-normal:    400;
+  --font-weight-semibold:  600;
+  --font-weight-bold:      700;
+  --font-weight-black:     900;
+
+  --line-height-tight:  1.3;
+  --line-height-normal: 1.7;
+  --line-height-body:   1.75;
+
+  /* ── Spacing scale ── */
+  --space-1:  0.25rem;   /*  4px */
+  --space-2:  0.50rem;   /*  8px */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1.00rem;   /* 16px */
+  --space-5:  1.25rem;   /* 20px */
+  --space-6:  1.50rem;   /* 24px */
+  --space-8:  2.00rem;   /* 32px */
+  --space-10: 2.50rem;   /* 40px */
+  --space-12: 3.00rem;   /* 48px */
+  --space-16: 4.00rem;   /* 64px */
+  --space-20: 5.00rem;   /* 80px */
+
+  /* ── Section padding (horizontal) ── */
+  --section-px: 5%;
+
+  /* ── Border radius ── */
+  --radius-sm:   3px;
+  --radius-base: 4px;
+  --radius-md:   8px;
+  --radius-lg:  16px;
+
+  /* ── Shadows ── */
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-card-hover: 0 14px 36px rgba(0, 0, 0, 0.45);
+  --shadow-header:
+    rgba(0, 0, 0, 0.17) 0 -23px 25px 0 inset,
+    rgba(0, 0, 0, 0.15) 0 -36px 30px 0 inset,
+    rgba(0, 0, 0, 0.1)  0 -79px 40px 0 inset,
+    rgba(0, 0, 0, 0.06) 0 2px 1px,
+    rgba(0, 0, 0, 0.09) 0 4px 2px,
+    rgba(0, 0, 0, 0.09) 0 8px 4px,
+    rgba(0, 0, 0, 0.09) 0 16px 8px,
+    rgba(0, 0, 0, 0.09) 0 32px 16px;
+
+  /* ── Transitions ── */
+  --transition-fast:   0.2s ease;
+  --transition-base:   0.3s ease;
+  --transition-slow:   0.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ── Breakpoints (reference only — use in media queries) ── */
+  /* --bp-sm:  576px  */
+  /* --bp-md:  768px  */
+  /* --bp-lg:  992px  */
+  /* --bp-xl: 1200px  */
+
+  /* ── Button minimum tap target (WCAG 2.5.5) ── */
+  --btn-min-height: 48px;
+  --btn-padding-y:  12px;
+  --btn-padding-x:  24px;
+}

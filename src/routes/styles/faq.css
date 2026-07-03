@@ -195,3 +195,67 @@
     max-width: none;
   }
 }
+
+/* ── Extended FAQ wide section (clean white, 2-col grid on desktop) ── */
+.faq-wide-section {
+  background-color: rgba(211, 204, 184, 0.9);
+  padding: 3.5rem 5%;
+  position: relative;
+  z-index: 2;
+}
+
+.faq-wide-header {
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.faq-wide-title {
+  color: #1a3c34;
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.faq-wide-title hr {
+  width: 60px;
+  height: 3px;
+  background-color: #b7312a;
+  border: none;
+  margin: 0 auto;
+}
+
+.faq-wide-lead {
+  color: #1a3c34;
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
+.faq-wide-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.4rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 900px) {
+  .faq-wide-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.4rem 2rem;
+  }
+}
+
+/* Make the FAQ items inside the wide section blend with white bg */
+.faq-wide-section .faq-item {
+  break-inside: avoid;
+}
+
+.main_faq > .sp-contact-block {
+  position: relative;
+  z-index: 2;
+}

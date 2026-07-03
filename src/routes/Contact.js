@@ -33,19 +33,21 @@ function Contact() {
 
   return (
     <>
-      <Helmet>
-        <title>Contact Us - Wika Translate | Get a Free Translation Quote in Rwanda</title>
-        <meta name="description" content="Get in touch with Wika Translate for professional translation and interpretation services in Rwanda. Request a free quote in under 10 minutes. Visit us in Kigali or reach us online." />
-        <meta name="keywords" content="contact Wika Translate, translation quote Rwanda, interpretation services Kigali, translation company contact Kigali, free translation quote Rwanda" />
+      <Helmet defer={false}>
+        <title>Contact WIKA TRANSLATE | +250 788 933 063 | Kigali, Rwanda</title>
+        <meta name="description" content="Contact WIKA TRANSLATE Ltd. in Kigali, Rwanda. Phone/WhatsApp: +250 788 933 063. Email: info@wikatranslate.net. Free translation quote in under 10 minutes." />
+        <meta name="keywords" content="contact WIKA TRANSLATE, translation quote Rwanda, free translation quote Kigali, interpretation services contact Rwanda" />
         <link rel="canonical" href="https://www.wikatranslate.net/contact" />
-        <meta property="og:title" content="Contact Wika Translate | Free Translation Quote in Rwanda" />
-        <meta property="og:description" content="Contact Wika Translate for professional translation and interpretation services. Get a free quote in under 10 minutes. Based in Kigali, Rwanda." />
+        <meta property="og:site_name" content="WIKA TRANSLATE Ltd." />
+        <meta property="og:locale" content="en_RW" />
+        <meta property="og:title" content="Contact WIKA TRANSLATE | +250 788 933 063 | Kigali, Rwanda" />
+        <meta property="og:description" content="Contact WIKA TRANSLATE Ltd. in Kigali, Rwanda. Phone/WhatsApp: +250 788 933 063. Email: info@wikatranslate.net. Free translation quote in under 10 minutes." />
         <meta property="og:url" content="https://www.wikatranslate.net/contact" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contact Wika Translate | Free Translation Quote in Rwanda" />
-        <meta name="twitter:description" content="Contact Wika Translate for professional translation and interpretation services. Get a free quote in under 10 minutes. Based in Kigali, Rwanda." />
+        <meta name="twitter:title" content="Contact WIKA TRANSLATE | +250 788 933 063 | Kigali, Rwanda" />
+        <meta name="twitter:description" content="Contact WIKA TRANSLATE Ltd. in Kigali, Rwanda. Phone/WhatsApp: +250 788 933 063. Email: info@wikatranslate.net. Free translation quote in under 10 minutes." />
         <meta name="twitter:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
       </Helmet>
       <section className="contact_section" id="contact">
@@ -107,7 +109,7 @@ function Contact() {
               <form id="form" action="https://formspree.io/f/xjvdgezn" method="POST" className="contact-form">
                 <input type="text" name="_honey" style={{ display: 'none' }} />
                 <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value="http://127.0.0.1:5555/#contact-us" />
+                <input type="hidden" name="_next" value="https://www.wikatranslate.net/contact" />
                 <div className="contact_details">
                   <input type="text" id="name" name="name" placeholder={t.contact.fullName} className="input" required />
                   <input type="text" id="phone" name="phone" placeholder={t.contact.phone} className="input" />

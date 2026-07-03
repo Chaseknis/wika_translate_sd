@@ -33,19 +33,21 @@ function Blog() {
 
   return (
     <>
-      <Helmet>
-        <title>Blog - Wika Translate | Translation &amp; Interpretation Insights</title>
-        <meta name="description" content="Read the latest articles and insights from Wika Translate on translation, interpretation, language services, and multilingual communication in Rwanda and beyond." />
-        <meta name="keywords" content="translation blog Rwanda, interpretation articles Kigali, language services insights, multilingual communication blog, Wika Translate blog" />
+      <Helmet defer={false}>
+        <title>Blog | Translation &amp; Language Insights Rwanda | WIKA TRANSLATE</title>
+        <meta name="description" content="Expert articles on translation, interpretation &amp; language services from WIKA TRANSLATE — Rwanda's leading professional language agency in Kigali." />
+        <meta name="keywords" content="translation blog Rwanda, interpretation articles Kigali, language services insights Rwanda, WIKA TRANSLATE blog" />
         <link rel="canonical" href="https://www.wikatranslate.net/blog" />
-        <meta property="og:title" content="Blog | Translation &amp; Interpretation Insights - Wika Translate" />
-        <meta property="og:description" content="Expert articles on translation, interpretation, and language services from Wika Translate — Rwanda's leading professional language agency." />
+        <meta property="og:site_name" content="WIKA TRANSLATE Ltd." />
+        <meta property="og:locale" content="en_RW" />
+        <meta property="og:title" content="Blog | Translation &amp; Language Insights Rwanda | WIKA TRANSLATE" />
+        <meta property="og:description" content="Expert articles on translation, interpretation &amp; language services from WIKA TRANSLATE — Rwanda's leading professional language agency in Kigali." />
         <meta property="og:url" content="https://www.wikatranslate.net/blog" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Blog | Translation &amp; Interpretation Insights - Wika Translate" />
-        <meta name="twitter:description" content="Expert articles on translation, interpretation, and language services from Wika Translate — Rwanda's leading professional language agency." />
+        <meta name="twitter:title" content="Blog | Translation &amp; Language Insights Rwanda | WIKA TRANSLATE" />
+        <meta name="twitter:description" content="Expert articles on translation, interpretation &amp; language services from WIKA TRANSLATE — Rwanda's leading professional language agency in Kigali." />
         <meta name="twitter:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
       </Helmet>
 

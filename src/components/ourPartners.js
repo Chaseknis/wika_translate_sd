@@ -43,40 +43,40 @@ function OurPartners() {
         className="our-partners-grid"
       >
         <div className="partner-item">
-          <img src={PaxforPeace} alt="Translation Agency in Kigali" loading="lazy" className="partner-logo" />
+          <img src={PaxforPeace} alt="Pax voor Vrede — client of WIKA TRANSLATE interpretation services" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={mPharma} alt="Interpretation Company in Kigali" loading="lazy" className="partner-logo" />
+          <img src={mPharma} alt="mPharma — client of WIKA TRANSLATE translation services in Rwanda" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={HIVOS} alt="HIVOS International" loading="lazy" className="partner-logo" />
+          <img src={HIVOS} alt="HIVOS Global — client of WIKA TRANSLATE language services" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={care} alt="Interpretation Company in Rwanda" loading="lazy" className="partner-logo" />
+          <img src={care} alt="CARE International — client of WIKA TRANSLATE interpretation services Rwanda" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={GTBank} alt="Guaranty Trust Bank" loading="lazy" className="partner-logo" />
+          <img src={GTBank} alt="Guaranty Trust Bank — client of WIKA TRANSLATE document translation" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={Ishyo} alt="Ishyo Art Center" loading="lazy" className="partner-logo" />
+          <img src={Ishyo} alt="Ishyo Arts Centre Kigali — client of WIKA TRANSLATE" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={technisup} alt="Technisup Rwanda LTD" loading="lazy" className="partner-logo" />
+          <img src={technisup} alt="Technisup Rwanda Ltd — client of WIKA TRANSLATE certified translation" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={OryxEnergies} alt="ORYX Energies Rwanda" loading="lazy" className="partner-logo" />
+          <img src={OryxEnergies} alt="Oryx Energies Rwanda — client of WIKA TRANSLATE professional translation" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={SmartAfrica} alt="Smart Africa" loading="lazy" className="partner-logo" />
+          <img src={SmartAfrica} alt="Smart Africa — client of WIKA TRANSLATE multilingual services" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={BurkinaFaso} alt="Translation Company in Kigali" loading="lazy" className="partner-logo" />
+          <img src={BurkinaFaso} alt="Government of Burkina Faso — client of WIKA TRANSLATE official translation" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={Rwanda} alt="Translation Company in Rwanda" loading="lazy" className="partner-logo" />
+          <img src={Rwanda} alt="Government of Rwanda — client of WIKA TRANSLATE certified translation services" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={Irembo} alt="Irembo Rwanda" loading="lazy" className="partner-logo" />
+          <img src={Irembo} alt="Irembo Rwanda — client of WIKA TRANSLATE digital localization services" loading="lazy" className="partner-logo" />
         </div>
       </div>
     </div>

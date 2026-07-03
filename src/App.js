@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import './app.css';
 import './routes/styles/home.css';
 import './routes/styles/about.css';
@@ -6,6 +7,7 @@ import './routes/styles/translation.css';
 import './routes/styles/faq.css';
 import './routes/styles/contact.css';
 import './routes/styles/footer.css';
+import './routes/styles/service-pages.css';
 import {
   useLocation, Routes, Route, useParams,
 } from 'react-router-dom';
@@ -30,6 +32,25 @@ const Contact = lazy(() => import('./routes/Contact'));
 const Footer = lazy(() => import('./routes/footer'));
 const Quotation = lazy(() => import('./components/Quotation'));
 const Blog = lazy(() => import('./routes/blog'));
+const Industries = lazy(() => import('./routes/Industries'));
+const Languages = lazy(() => import('./routes/Languages'));
+const Sectors = lazy(() => import('./routes/Sectors'));
+const WhyWikaTranslate = lazy(() => import('./routes/WhyWikaTranslate'));
+const OurOffices = lazy(() => import('./routes/OurOffices'));
+const Quote = lazy(() => import('./routes/Quote'));
+const DocumentTranslation = lazy(() => import('./routes/services/DocumentTranslation'));
+const CertifiedTranslation = lazy(() => import('./routes/services/CertifiedTranslation'));
+const InterpretationServices = lazy(() => import('./routes/services/InterpretationServices'));
+const EquipmentRental = lazy(() => import('./routes/services/EquipmentRental'));
+const Localization = lazy(() => import('./routes/services/Localization'));
+const Transcription = lazy(() => import('./routes/services/Transcription'));
+const CityKigali = lazy(() => import('./routes/cities/Kigali'));
+const CityHuye = lazy(() => import('./routes/cities/Huye'));
+const CityMusanze = lazy(() => import('./routes/cities/Musanze'));
+const CityRubavu = lazy(() => import('./routes/cities/Rubavu'));
+const CityNyagatare = lazy(() => import('./routes/cities/Nyagatare'));
+const CityMuhanga = lazy(() => import('./routes/cities/Muhanga'));
+const CityRusizi = lazy(() => import('./routes/cities/Rusizi'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -46,101 +67,120 @@ function ScrollToTop() {
 function App() {
   return (
     <LanguageProvider>
-      <Helmet>
+      <Helmet defer={false}>
         {/* Charset & Compatibility */}
         <meta charset="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        {/* Title (Expanded with relevant keywords) */}
-        <title>
-          Wika Translate
-          - Professional Translation & Interpretation Services in Rwanda | Legal, Technical & More.
-        </title>
+        {/* Title */}
+        <title>Professional Translation &amp; Interpretation Services Rwanda | WIKA TRANSLATE</title>
 
-        {/* Enhanced Description */}
-        <meta name="description" content="Wika Translate is a leading and well-established translation Company in Rwanda, offering expert language solutions to businesses, individuals, and organizations in Kigali, and globally. Specializing in legal, technical, business, and certified translations, we deliver fast, accurate, and culturally relevant services across multiple languages. Trusted by global brands, Wika Translate ensures quality, confidentiality, and affordability, making us the preferred choice for professional translation and interpretation services." />
+        {/* Description */}
+        <meta name="description" content="WIKA TRANSLATE Ltd. — Rwanda's best &amp; #1 translation &amp; interpretation company in Kigali. Top-rated certified, legal &amp; document translation, conference interpretation. 800+ translators, 150+ language pairs. MINIJUST notarization. Free quote in 10 min." />
 
-        {/* Expanded Keywords */}
-        <meta name="keywords" content="professional translation services in rwanda, translation services in kigali, translation services in rwanda, legal translation services, technical translation services, business translation services, certified translation in rwanda, kinyarwanda translation, english translation, french translation, swahili translation services, arabic translation services, arabic translation services in rwanda, arabic translation services in kigali, arabic interpretation services, arabic interpretation services in rwanda, arabic interpretation services in kigali, german translation services, translation services in over 150 languages, rwanda interpreters for conferences, document translation in rwanda, simultaneous interpretation in kigali, simultaneous interpretation in rwanda, legal interpreters in rwanda, medical translation services, financial translation services, marketing translation services, website translation in rwanda, translation agency in east africa, language solutions in rwanda, language service provider in kigali, Arabic, translation for NGOs in rwanda, translation for businesses in rwanda, notarized translation services, conference interpretation services, professional translators for global languages, corporate translation solutions, multilingual translation services, international translation agency, french to kinyarwanda interpreters, portuguese translators, spanish translation services, italian translation services, portuguese to english translations, swahili interpreters, translation services for individuals and organizations, simultaneous interpretation equipment rental," />
+        {/* Keywords */}
+        <meta name="keywords" content="best translation company Rwanda, top translation company Rwanda, best translation company Kigali, top translation company Kigali, number one translation company Rwanda, translation services Rwanda, translation company Rwanda, translation company Kigali, certified translation Rwanda, interpretation services Rwanda, interpretation services Kigali, document translation Rwanda, legal translation Rwanda, Kinyarwanda translation services, French English translation Rwanda, Arabic translation Rwanda, Swahili translation Rwanda, conference interpretation Rwanda, simultaneous interpretation Kigali, consecutive interpretation Rwanda, sworn translation Rwanda, notarized translation Rwanda, MINIJUST notarization Rwanda, notarized translation for use outside Rwanda, embassy translation Kigali, NGO translation Rwanda, UN translation Rwanda, UNDP translation Rwanda, professional translators Rwanda, translation agency Rwanda, translation bureau Kigali, language services Rwanda, East Africa translation services, interpretation company Rwanda, certified translators Rwanda, court translation Rwanda, medical translation Rwanda, transcription services Rwanda, localization services Rwanda, interpretation equipment rental Rwanda, language company Kigali, WIKA TRANSLATE Rwanda" />
 
-        {/* Robots (for indexing & crawling) */}
+        {/* Robots */}
         <meta name="robots" content="index, follow" />
 
         {/* Canonical URL */}
         <link rel="canonical" href="https://www.wikatranslate.net/" />
 
-        {/* Language Tag */}
+        {/* Language & Author */}
         <meta httpEquiv="Content-Language" content="en" />
+        <meta name="author" content="WIKA TRANSLATE Ltd." />
 
         {/* Open Graph Tags */}
-        <meta property="og:site_name" content="Wika Translate" />
-        <meta property="og:title" content="Professional Translation Services in Rwanda | Wika Translate" />
-        <meta property="og:description" content="Wika Translate provides specialized legal, technical, and business translation and interpretation services in Kigali, Rwanda. Trusted by global companies and individuals alike." />
+        <meta property="og:site_name" content="WIKA TRANSLATE Ltd." />
+        <meta property="og:locale" content="en_RW" />
+        <meta property="og:title" content="Professional Translation &amp; Interpretation Services Rwanda | WIKA TRANSLATE" />
+        <meta property="og:description" content="WIKA TRANSLATE Ltd. — Rwanda's #1 translation &amp; interpretation company in Kigali. Certified, legal &amp; document translation, conference interpretation. 800+ translators, 150+ language pairs. Free quote in 10 min." />
         <meta property="og:url" content="https://www.wikatranslate.net/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
-        {' '}
-        {/* Image for social media sharing */}
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="
-             Wika Translate - Professional Translation & Interpretation Services in Rwanda | Legal, Technical & More."
-        />
-        <meta name="twitter:description" content="Offering professional translation services in Rwanda, including legal, technical, and business translations for businesses and individuals worldwide." />
+        <meta name="twitter:title" content="Professional Translation &amp; Interpretation Services Rwanda | WIKA TRANSLATE" />
+        <meta name="twitter:description" content="WIKA TRANSLATE Ltd. — Rwanda's #1 translation &amp; interpretation company in Kigali. 800+ translators, 150+ languages. Free quote in 10 min." />
         <meta name="twitter:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
 
-        {/* Structured Data */}
+        {/* Structured Data — Full LocalBusiness schema */}
         <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "Wika Translate",
-              "url": "https://www.wikatranslate.net/",
-              "logo": "https://www.wikatranslate.net/images/logo_wika_translate.png",
-              "image": "https://www.wikatranslate.net/images/office.jpg",
-              "description": "Wika Translate is a trusted translation and interpretation service provider in Rwanda, offering high-quality language solutions for individuals and businesses.",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Makuza Peace Plaza, KN 84 St, Kigali, Rwanda",
-                "addressLocality": "Kigali",
-                "addressCountry": "RW",
-                "postalCode": "250"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": "-1.946463734749799",
-                "longitude": "30.05945716766021"
-              },
-              "sameAs": [
-                "https://www.facebook.com/profile.php?id=100076180103188",
-                "https://www.twitter.com/wikatranslate",
-                "https://www.linkedin.com/company/81655771",
-                "https://www.instagram.com/wikatranslate"
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'LocalBusiness',
+            name: 'WIKA TRANSLATE Ltd.',
+            alternateName: 'Wika Translate Rwanda',
+            description: 'WIKA TRANSLATE Ltd. is Rwanda\'s leading professional translation and interpretation company, headquartered in Kigali, Rwanda. Services include certified document translation, legal translation, simultaneous interpretation, localization, and transcription.',
+            url: 'https://www.wikatranslate.net',
+            logo: 'https://www.wikatranslate.net/images/logo_wika_translate.png',
+            image: 'https://www.wikatranslate.net/images/office.jpg',
+            telephone: '+250788933063',
+            email: 'info@wikatranslate.net',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Makuza Peace Plaza, KN 84 St',
+              addressLocality: 'Kigali',
+              addressCountry: 'RW',
+            },
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: '-1.946463734749799',
+              longitude: '30.05945716766021',
+            },
+            areaServed: [
+              { '@type': 'Country', name: 'Rwanda' },
+              { '@type': 'Country', name: 'Uganda' },
+              { '@type': 'Country', name: 'Kenya' },
+              { '@type': 'Country', name: 'Tanzania' },
+              { '@type': 'Country', name: 'Burundi' },
+              { '@type': 'Country', name: 'DRC' },
+              { '@type': 'AdministrativeArea', name: 'East Africa' },
+            ],
+            contactPoint: {
+              '@type': 'ContactPoint',
+              telephone: '+250788933063',
+              email: 'info@wikatranslate.net',
+              contactType: 'customer service',
+              availableLanguage: ['English', 'French', 'Kinyarwanda', 'Arabic', 'Swahili'],
+            },
+            openingHours: ['Mo-Su 00:00-23:59'],
+            hasOfferCatalog: {
+              '@type': 'OfferCatalog',
+              name: 'Translation & Interpretation Services Rwanda',
+              itemListElement: [
+                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Document Translation Rwanda' } },
+                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Certified Legal Translation Rwanda' } },
+                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Interpretation Services Rwanda' } },
+                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Localization Services Rwanda' } },
+                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Transcription Services Rwanda' } },
+                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Interpretation Equipment Rental Rwanda' } },
               ],
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+250788933063",
-                "contactType": "Customer Service",
-                "areaServed": "RW",
-                "availableLanguage": ["English", "French", "Kinyarwanda"]
+            },
+            subsidiary: {
+              '@type': 'Organization',
+              name: 'WIKA TRANSLATE SUDAN',
+              url: 'https://www.wikatranslate.us',
+              telephone: '+249967200938',
+              email: 'info@wikatranslate.us',
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: 'Al Emtidad Street',
+                addressLocality: 'Omdurman',
+                addressCountry: 'SD',
               },
-              "openingHours": ["Mo-Su 00:00-23:59"],
-              "priceRange": "$",
-              "serviceArea": {
-                "@type": "AdministrativeArea",
-                "name": "Rwanda"
-              }
-            }
-          `}
+            },
+            sameAs: [
+              'https://www.facebook.com/wikatranslate',
+              'https://www.instagram.com/wikatranslate',
+              'https://www.linkedin.com/company/81655771',
+              'https://wa.me/250788933063',
+            ],
+          })}
         </script>
-
-        {/* Author */}
-        <meta name="author" content="Wika Translate Team" />
       </Helmet>
       <ScrollToTop />
       <ScrollUp />
@@ -149,9 +189,31 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/Services" element={<Services />} />
-          <Route path="/Translation" element={<Translation />} />
-          <Route path="/FAQ" element={<FAQ />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/translation" element={<Translation />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/industries" element={<Industries />} />
+          {/* New info pages */}
+          <Route path="/languages" element={<Languages />} />
+          <Route path="/sectors" element={<Sectors />} />
+          <Route path="/why-wika-translate" element={<WhyWikaTranslate />} />
+          <Route path="/our-offices" element={<OurOffices />} />
+          <Route path="/quote" element={<Quote />} />
+          {/* Service sub-pages */}
+          <Route path="/services/document-translation-rwanda" element={<DocumentTranslation />} />
+          <Route path="/services/certified-translation-rwanda" element={<CertifiedTranslation />} />
+          <Route path="/services/interpretation-services-rwanda" element={<InterpretationServices />} />
+          <Route path="/services/interpretation-equipment-rental-rwanda" element={<EquipmentRental />} />
+          <Route path="/services/localization-rwanda" element={<Localization />} />
+          <Route path="/services/transcription-rwanda" element={<Transcription />} />
+          {/* City pages */}
+          <Route path="/translation-services-kigali" element={<CityKigali />} />
+          <Route path="/translation-services-huye" element={<CityHuye />} />
+          <Route path="/translation-services-musanze" element={<CityMusanze />} />
+          <Route path="/translation-services-rubavu" element={<CityRubavu />} />
+          <Route path="/translation-services-nyagatare" element={<CityNyagatare />} />
+          <Route path="/translation-services-muhanga" element={<CityMuhanga />} />
+          <Route path="/translation-services-rusizi" element={<CityRusizi />} />
           <Route path="/contact" element={<Contact />}>
             <Route path="quotation" element={<Quotation />} />
           </Route>
@@ -177,7 +239,7 @@ function BlogPostContent({ blogContent }) {
 
   return (
     <div className="blog-container">
-      <Helmet>
+      <Helmet defer={false}>
         <title>
           {content.title}
           {' '}
