@@ -5,8 +5,45 @@
 }
 
 .button {
-  padding: 12px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 32px;
   cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #ffca7a;
+  background: transparent;
+  border: 1px solid #ffca7a;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.35s ease;
+  min-height: 44px;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #ffca7a;
+  transform: translateY(101%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 0;
+}
+
+.button:hover::before {
+  transform: translateY(0);
+}
+
+.button:hover {
+  color: #1a3c34;
+}
+
+.button > span {
+  position: relative;
+  z-index: 1;
 }
 
 @supports (-webkit-text-stroke: 1px rgba(225, 225, 225, 0.5)) {
@@ -44,53 +81,52 @@
   }
 }
 
-/* ── RTL (Arabic) overrides ── */
-[dir="rtl"] body {
-  font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
-}
-
-[dir="rtl"] h1,
-[dir="rtl"] h2,
-[dir="rtl"] h3,
-[dir="rtl"] p {
+/* ── RTL (Arabic) overrides — text direction only, layout stays LTR ── */
+.lang-ar h1,
+.lang-ar h2,
+.lang-ar h3,
+.lang-ar p,
+.lang-ar span,
+.lang-ar li,
+.lang-ar label {
+  direction: rtl;
   text-align: right;
 }
 
-[dir="rtl"] .home_wrapper,
-[dir="rtl"] .about_wrapper,
-[dir="rtl"] .faq-header,
-[dir="rtl"] .contact-form-section,
-[dir="rtl"] .quotation-form {
+.lang-ar input,
+.lang-ar textarea {
+  direction: rtl;
+  text-align: right;
+}
+
+.lang-ar input::placeholder,
+.lang-ar textarea::placeholder {
+  text-align: right;
+}
+
+.lang-ar .nav_link {
   direction: rtl;
 }
 
-[dir="rtl"] .nav_menu ul {
-  direction: rtl;
-}
-
-[dir="rtl"] .footer-bottom-content {
-  flex-direction: row-reverse;
-}
-
-[dir="rtl"] .links-container {
-  direction: rtl;
-}
-
-[dir="rtl"] .header_contact_card {
-  justify-content: flex-start;
-}
-
-[dir="rtl"] .about_best_ad h2,
-[dir="rtl"] .translation_page_title h2,
-[dir="rtl"] .faq-title,
-[dir="rtl"] .services-title,
-[dir="rtl"] .text_section_wrapper h2 {
+.lang-ar .about_best_ad h2,
+.lang-ar .translation_page_title h2,
+.lang-ar .faq-title,
+.lang-ar .services-title,
+.lang-ar .text_section_wrapper h2 {
   align-items: flex-end;
 }
 
-[dir="rtl"] .about_best_ad hr,
-[dir="rtl"] .translation_page_title hr,
-[dir="rtl"] .text_section_wrapper hr {
+.lang-ar .about_best_ad hr,
+.lang-ar .translation_page_title hr,
+.lang-ar .text_section_wrapper hr {
   margin-left: auto;
   margin-right: 0;
+}
+
+.lang-ar .brand-description,
+.lang-ar .newsletter-description,
+.lang-ar .contact-text,
+.lang-ar .address-text {
+  direction: rtl;
+  text-align: right;
 }

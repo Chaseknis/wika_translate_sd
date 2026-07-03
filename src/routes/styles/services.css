@@ -14,7 +14,7 @@
 .services {
   width: 100%;
   padding: 5%;
-  background-color: rgba(211, 204, 184, 0.9);
+  background: rgba(211, 204, 184, 0.9);
   overflow: hidden;
 }
 
@@ -22,7 +22,7 @@
   position: relative;
   z-index: 2;
   padding: 5%;
-  background-color: rgba(211, 204, 184, 0.9);
+  background: rgba(211, 204, 184, 0.9);
 }
 
 .header_wrapper {
@@ -310,4 +310,89 @@
     position: relative;
     max-width: 700px;
   }
+}
+
+/* ── Service sub-page link grid ── */
+.services_subpages_wrapper {
+  padding: 60px 0 20px;
+}
+
+.services_subpages_title {
+  color: #1a3c34;
+  font-size: 22px;
+  display: block;
+  width: 100%;
+  padding: 0;
+}
+
+.services_subpages_title hr {
+  width: 90px;
+  border: none;
+  height: 3px;
+  background-color: #b7312a;
+  margin: 10px 0 32px 0;
+}
+
+.services_subpages_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.srv_link_card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px 20px;
+  background: rgba(26, 60, 52, 0.06);
+  border: 1px solid rgba(26, 60, 52, 0.15);
+  border-left: 4px solid #b7312a;
+  text-decoration: none;
+  color: #1a3c34;
+  transition: background 0.3s ease, border-left-color 0.3s ease, transform 0.3s ease;
+  border-radius: 2px;
+}
+
+.srv_link_card:hover {
+  background: rgba(26, 60, 52, 0.1);
+  border-left-color: #1a3c34;
+  transform: translateY(-3px);
+}
+
+.srv_link_card i {
+  font-size: 1.5rem;
+  color: #b7312a;
+}
+
+.srv_link_card strong {
+  font-size: 0.95rem;
+  color: #1a3c34;
+}
+
+.srv_link_card p {
+  font-size: 0.8rem;
+  color: rgba(26, 60, 52, 0.7);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.services_subpages_cta {
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 20px;
+}
+
+.services_sudan_link {
+  display: inline-block;
+  color: #b7312a;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.services_sudan_link:hover {
+  color: #1a3c34;
 }

@@ -499,3 +499,90 @@ h1 {
   transform: translateY(-4px) scale(1.03);
   box-shadow: 0 8px 20px rgba(183, 49, 42, 0.4);
 }
+
+/* ── Cities We Serve section ── */
+.cities-section {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(-25deg, rgb(26, 20, 8) 0%, rgb(18, 18, 30) 100%);
+  padding: 72px 5%;
+  text-align: center;
+}
+
+.cities-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cities-title {
+  color: #ffca7a;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.cities-title hr {
+  width: 60px;
+  border: none;
+  height: 3px;
+  background-color: #b7312a;
+  margin: 12px 0 20px 0;
+}
+
+.cities-subtitle {
+  color: #d2c79f;
+  font-size: 0.85rem;
+  margin-bottom: 40px;
+  line-height: 1.7;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cities-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.city-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 22px;
+  border: 1px solid rgba(255, 202, 122, 0.3);
+  color: #d2c79f;
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.3px;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  border-radius: 2px;
+}
+
+.city-chip:hover {
+  background: rgba(255, 202, 122, 0.1);
+  border-color: #ffca7a;
+  color: #ffca7a;
+}
+
+.cities-cta {
+  padding-top: 4px;
+}
+
+.cities-view-all {
+  color: rgba(255, 202, 122, 0.7);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+  letter-spacing: 0.3px;
+}
+
+.cities-view-all:hover {
+  color: #ffca7a;
+}

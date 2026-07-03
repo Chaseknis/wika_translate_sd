@@ -169,6 +169,8 @@ function Quotation() {
         </div>
 
         <Select
+          inputId="quotation-country"
+          aria-label={qt.country}
           options={countryList().getData()}
           value={country}
           onChange={setCountry}
@@ -187,21 +189,26 @@ function Quotation() {
             onChange={handleChange}
           />
 
-          <select
-            name="service"
-            className="input"
-            value={formData.service}
-            onChange={handleChange}
-            required
-          >
-            <option value="" disabled>{qt.service}</option>
-            <option value="translation">{qt.serviceOptions.translation}</option>
-            <option value="interpretation">{qt.serviceOptions.interpretation}</option>
-            <option value="subtitling">{qt.serviceOptions.subtitling}</option>
-            <option value="transcription">{qt.serviceOptions.transcription}</option>
-            <option value="localization">{qt.serviceOptions.localization}</option>
-            <option value="online-interpretation">{qt.serviceOptions.onlineInterpretation}</option>
-          </select>
+          <label htmlFor="quotation-service" className="quotation_select_label">
+            {qt.service}
+            <select
+              id="quotation-service"
+              name="service"
+              aria-label={qt.service}
+              className="input"
+              value={formData.service}
+              onChange={handleChange}
+              required
+            >
+              <option value="" disabled>{qt.service}</option>
+              <option value="translation">{qt.serviceOptions.translation}</option>
+              <option value="interpretation">{qt.serviceOptions.interpretation}</option>
+              <option value="subtitling">{qt.serviceOptions.subtitling}</option>
+              <option value="transcription">{qt.serviceOptions.transcription}</option>
+              <option value="localization">{qt.serviceOptions.localization}</option>
+              <option value="online-interpretation">{qt.serviceOptions.onlineInterpretation}</option>
+            </select>
+          </label>
         </div>
 
         <div className="quotation_input_wrapper">

@@ -18,7 +18,11 @@ export function LanguageProvider({ children }) {
 
   useEffect(() => {
     document.documentElement.lang = language;
-    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+    if (language === 'ar') {
+      document.documentElement.classList.add('lang-ar');
+    } else {
+      document.documentElement.classList.remove('lang-ar');
+    }
   }, [language]);
 
   const t = translations[language];

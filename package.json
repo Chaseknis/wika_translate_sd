@@ -38,6 +38,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "generate-sitemap": "node scripts/generate-sitemap.js",
@@ -47,6 +48,44 @@
     "extends": [
       "react-app",
       "react-app/jest"
+    ]
+  },
+  "reactSnap": {
+    "waitFor": 3000,
+    "puppeteerExecutablePath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "crawl": true,
+    "include": [
+      "/",
+      "/about",
+      "/services",
+      "/translation",
+      "/faq",
+      "/contact",
+      "/contact/quotation",
+      "/translation-services-sudan",
+      "/services/document-translation-sudan",
+      "/services/certified-translation-sudan",
+      "/services/interpretation-services-sudan",
+      "/services/interpretation-equipment-rental-sudan",
+      "/translation-services-khartoum",
+      "/translation-services-omdurman",
+      "/translation-services-port-sudan",
+      "/translation-services-kassala",
+      "/translation-services-el-obeid",
+      "/translation-services-wad-madani",
+      "/translation-services-nyala",
+      "/translation-services-gedaref",
+      "/translation-services-atbara",
+      "/blog",
+      "/blog/1",
+      "/blog/2",
+      "/blog/3",
+      "/blog/4",
+      "/blog/5",
+      "/blog/6",
+      "/blog/7",
+      "/blog/8",
+      "/blog/9"
     ]
   },
   "browserslist": {
@@ -73,6 +112,7 @@
     "eslint-plugin-jsx-a11y": "^6.10.0",
     "eslint-plugin-react": "^7.35.2",
     "eslint-plugin-react-hooks": "^4.6.2",
+    "react-snap": "^1.23.0",
     "source-map-explorer": "^2.5.3",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",

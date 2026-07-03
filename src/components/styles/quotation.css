@@ -10,6 +10,14 @@
   gap: 1rem;
 }
 
+.quotation_select_label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: rgba(255, 202, 122, 0.7);
+}
+
 /* react-phone-input-2 */
 .react-tel-input .form-control {
   width: 100% !important;

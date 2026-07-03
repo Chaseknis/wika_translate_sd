@@ -19,6 +19,7 @@ function Blog() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
+    if (navigator.userAgent === 'ReactSnap') return undefined;
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % 3);
     }, 3000);
@@ -33,20 +34,20 @@ function Blog() {
 
   return (
     <>
-      <Helmet>
-        <title>Blog - Wika Translate | Translation &amp; Interpretation Insights</title>
-        <meta name="description" content="Read the latest articles and insights from Wika Translate on translation, interpretation, language services, and multilingual communication in Rwanda and beyond." />
-        <meta name="keywords" content="translation blog Rwanda, interpretation articles Kigali, language services insights, multilingual communication blog, Wika Translate blog" />
-        <link rel="canonical" href="https://www.wikatranslate.net/blog" />
-        <meta property="og:title" content="Blog | Translation &amp; Interpretation Insights - Wika Translate" />
-        <meta property="og:description" content="Expert articles on translation, interpretation, and language services from Wika Translate — Rwanda's leading professional language agency." />
-        <meta property="og:url" content="https://www.wikatranslate.net/blog" />
+      <Helmet defer={false}>
+        <title>Translation Blog | Sudan Language Services Insights</title>
+        <meta name="description" content="Expert insights on translation, interpretation & language services in Sudan and East Africa. Tips, trends & articles from Wika Translate Sudan." />
+        <meta name="keywords" content="translation blog Sudan, interpretation blog Sudan, language services Sudan insights, translation East Africa blog, Arabic translation tips Sudan, NGO translation Sudan guide, UN interpretation Sudan" />
+        <link rel="canonical" href="https://www.wikatranslate.us/blog" />
+        <meta property="og:title" content="Translation Blog | Sudan Language Services Insights" />
+        <meta property="og:description" content="Expert insights on translation, interpretation & language services in Sudan and East Africa. Tips, trends & articles from Wika Translate Sudan." />
+        <meta property="og:url" content="https://www.wikatranslate.us/blog" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
+        <meta property="og:image" content="https://www.wikatranslate.us/images/office.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Blog | Translation &amp; Interpretation Insights - Wika Translate" />
-        <meta name="twitter:description" content="Expert articles on translation, interpretation, and language services from Wika Translate — Rwanda's leading professional language agency." />
-        <meta name="twitter:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
+        <meta name="twitter:title" content="Translation Blog | Sudan Language Services Insights" />
+        <meta name="twitter:description" content="Expert insights on translation, interpretation & language services in Sudan and East Africa from Wika Translate Sudan." />
+        <meta name="twitter:image" content="https://www.wikatranslate.us/images/office.jpg" />
       </Helmet>
 
       {/* ── Hero ── */}

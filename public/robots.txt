@@ -1,16 +1,3 @@
 User-agent: *
-Disallow: /admin/
-Disallow: /checkout/
-Disallow: /cart/
 Allow: /
-
-User-agent: Googlebot-Image
-Allow: /images/
-
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
-Sitemap: https://www.wikatranslate.net/sitemap.xml
+Sitemap: https://www.wikatranslate.us/sitemap.xml

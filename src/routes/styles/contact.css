@@ -294,3 +294,150 @@
     padding: 0 2rem 2rem 0;
   }
 }
+
+/* ── NAP + Map section ── */
+.contact_nap_section {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(rgba(56, 52, 41, 0.6), rgba(56, 52, 41, 0.9)),
+    url(/src/assets/charles-forerunner-3fPXt37X6UQ-unsplash.webp);
+  background-position: center;
+  background-size: cover;
+  padding: 64px 5%;
+}
+
+.contact_nap_inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.contact_nap_title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffca7a;
+}
+
+.contact_nap_title hr {
+  width: 110px;
+  border: none;
+  height: 3px;
+  background-color: #b7312a;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.contact_nap_address {
+  font-style: normal;
+  line-height: 2;
+  color: #d2c79f;
+  margin-bottom: 20px;
+}
+
+.contact_nap_address a {
+  color: #ffca7a;
+  text-decoration: none;
+}
+
+.contact_nap_address a:hover {
+  color: rgba(255, 202, 122, 0.7);
+}
+
+.contact_nap_address strong {
+  font-size: 1.05rem;
+  color: #ffca7a;
+}
+
+.contact_nap_map_link {
+  display: inline-block;
+  color: #ffca7a;
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+.contact_map_wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .contact_nap_inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Our Other Offices ── */
+.contact_offices_section {
+  position: relative;
+  z-index: 2;
+  background: rgb(37, 31, 10);
+  padding: 64px 5%;
+}
+
+.contact_offices_inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact_offices_title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffca7a;
+  text-align: center;
+}
+
+.contact_offices_title hr {
+  width: 110px;
+  border: none;
+  height: 3px;
+  background-color: #b7312a;
+  margin: 10px auto 0;
+}
+
+.contact_offices_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.office_card {
+  background: rgba(255, 202, 122, 0.05);
+  border: 1px solid rgba(255, 202, 122, 0.2);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.office_card h3 {
+  color: #ffca7a;
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+}
+
+.office_card address {
+  font-style: normal;
+  line-height: 2;
+  color: #d2c79f;
+}
+
+.office_card address a {
+  color: #ffca7a;
+  text-decoration: none;
+}
+
+.office_card address a:hover {
+  color: rgba(255, 202, 122, 0.7);
+}
+
+@media (max-width: 768px) {
+  .contact_offices_grid {
+    grid-template-columns: 1fr;
+  }
+}

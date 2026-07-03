@@ -36,21 +36,21 @@ function Header() {
       <div className={`header_contact_card${isScrolled ? ' hidden' : ''}`}>
         <div className="contact_card">
           <i className="bx bxl-whatsapp contact_card_icon" />
-          <a href="https://api.whatsapp.com/send?phone=250788933063&text=Hello, more information!" className="header_contact_button">
-            +250 788 933 063
+          <a href="https://api.whatsapp.com/send?phone=249967200938&text=Hello, more information!" className="header_contact_button">
+            +249 967 200 938
           </a>
         </div>
 
         <div className="contact_card">
           <i className="bx bx-mail-send contact_card_icon" />
-          <a href="mailto:info@wikatranslate.net" className="header_contact_button">
-            info@wikatranslate.net
+          <a href="mailto:info@wikatranslate.us" className="header_contact_button">
+            info@wikatranslate.us
           </a>
         </div>
       </div>
       <nav>
         <Link to="/" className="logo" aria-label="logo" onClick={() => setActiveNav('#home')}>
-          <img src={favicon} alt="logo" width="60" height="38" />
+          <img src={favicon} alt="Wika Translate Sudan" width="60" height="38" />
         </Link>
         <div className={toggle ? 'nav_menu show_menu' : 'nav_menu'}>
           <ul>

@@ -1,6 +1,6 @@
 /* FAQ Section Styles */
 .faq {
-  background-color: rgba(211, 204, 184, 0.9);
+  background: rgba(211, 204, 184, 0.9);
 }
 
 /* ── FAQ inner page: full-page fixed video ── */
@@ -52,13 +52,13 @@
   padding: 2rem 5% 2rem 5%;
   position: relative;
   z-index: 2;
-  background-color: rgba(211, 204, 184, 0.9);
+  background: rgba(211, 204, 184, 0.9);
 }
 
 .main_faq > .our-partners-container {
   position: relative;
   z-index: 2;
-  background-color: rgba(211, 204, 184, 0.9);
+  background: rgba(211, 204, 184, 0.9);
 }
 
 .faq-title {

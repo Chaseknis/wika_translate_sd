@@ -60,13 +60,13 @@
 }
 
 .blog-post-content a {
-  color: #4caf50;
+  color: #ffca7a;
   text-decoration: underline;
   transition: color 0.3s ease;
 }
 
 .blog-content a {
-  color: #4caf50;
+  color: #ffca7a;
   text-decoration: underline;
   transition: color 0.25s ease;
 }

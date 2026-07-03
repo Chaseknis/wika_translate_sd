@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "company": "WIKA TRANSLATE SUDAN",
+    "website": "https://www.wikatranslate.us",
+    "generatedDate": "2026-05-28",
+    "totalKeywords": 54
+  },
+  "clusters": {
+    "core_en": {
+      "label": "Core English Keywords",
+      "priority": 1,
+      "keywords": [
+        { "kw": "translation services Sudan", "page": "/translation-services-sudan", "intent": "Commercial" },
+        { "kw": "interpretation services Sudan", "page": "/services/interpretation-services-sudan", "intent": "Commercial" },
+        { "kw": "certified translation Sudan", "page": "/services/certified-translation-sudan", "intent": "Commercial" },
+        { "kw": "document translation Sudan", "page": "/services/document-translation-sudan", "intent": "Commercial" },
+        { "kw": "Arabic translation Sudan", "page": "/translation-services-sudan", "intent": "Commercial" },
+        { "kw": "Arabic English translation Sudan", "page": "/translation-services-sudan", "intent": "Commercial" },
+        { "kw": "Arabic French translation Sudan", "page": "/translation-services-sudan", "intent": "Commercial" },
+        { "kw": "simultaneous interpretation Sudan", "page": "/services/interpretation-services-sudan", "intent": "Commercial" },
+        { "kw": "consecutive interpretation Sudan", "page": "/services/interpretation-services-sudan", "intent": "Commercial" }
+      ]
+    },
+    "secondary_en": {
+      "label": "Secondary English Keywords",
+      "priority": 2,
+      "keywords": [
+        { "kw": "legal translation Sudan", "page": "/services/certified-translation-sudan", "intent": "Commercial" },
+        { "kw": "technical translation Sudan", "page": "/services/document-translation-sudan", "intent": "Commercial" },
+        { "kw": "conference interpretation Sudan", "page": "/services/interpretation-services-sudan", "intent": "Commercial" },
+        { "kw": "UN translation Sudan", "page": "/translation-services-sudan", "intent": "Commercial" },
+        { "kw": "NGO translation Sudan", "page": "/translation-services-sudan", "intent": "Commercial" },
+        { "kw": "embassy translation Sudan", "page": "/translation-services-sudan", "intent": "Commercial" },
+        { "kw": "interpretation equipment rental Sudan", "page": "/services/interpretation-equipment-rental-sudan", "intent": "Commercial" },
+        { "kw": "remote interpretation Sudan", "page": "/services/interpretation-services-sudan", "intent": "Commercial" }
+      ]
+    },
+    "city_en": {
+      "label": "City-Level English Keywords",
+      "priority": 2,
+      "keywords": [
+        { "kw": "translation services Khartoum", "page": "/translation-services-khartoum", "intent": "Commercial" },
+        { "kw": "translation services Omdurman", "page": "/translation-services-omdurman", "intent": "Commercial" },
+        { "kw": "translation services Port Sudan", "page": "/translation-services-port-sudan", "intent": "Commercial" },
+        { "kw": "translation services Kassala", "page": "/translation-services-kassala", "intent": "Commercial" },
+        { "kw": "translation services El Obeid", "page": "/translation-services-el-obeid", "intent": "Commercial" },
+        { "kw": "translation services Wad Madani", "page": "/translation-services-wad-madani", "intent": "Commercial" },
+        { "kw": "translation services Nyala", "page": "/translation-services-nyala", "intent": "Commercial" },
+        { "kw": "translation services Gedaref", "page": "/translation-services-gedaref", "intent": "Commercial" },
+        { "kw": "translation services Atbara", "page": "/translation-services-atbara", "intent": "Commercial" },
+        { "kw": "certified translation Khartoum", "page": "/translation-services-khartoum", "intent": "Commercial" },
+        { "kw": "certified translation Omdurman", "page": "/translation-services-omdurman", "intent": "Commercial" },
+        { "kw": "simultaneous interpretation Khartoum", "page": "/translation-services-khartoum", "intent": "Commercial" }
+      ]
+    },
+    "regional_en": {
+      "label": "Regional English Keywords",
+      "priority": 3,
+      "keywords": [
+        { "kw": "Horn of Africa translation", "page": "/translation-services-sudan", "intent": "Commercial" },
+        { "kw": "East Africa translation services", "page": "/translation-services-sudan", "intent": "Commercial" },
+        { "kw": "South Sudan translation services", "page": "/translation-services-sudan", "intent": "Commercial" }
+      ]
+    },
+    "longtail_en": {
+      "label": "Long-tail English Keywords",
+      "priority": 3,
+      "keywords": [
+        { "kw": "interpretation booths rental Sudan", "page": "/services/interpretation-equipment-rental-sudan", "intent": "Commercial" },
+        { "kw": "wireless receivers rental Sudan", "page": "/services/interpretation-equipment-rental-sudan", "intent": "Commercial" },
+        { "kw": "how to get certified translation Sudan", "page": "/blog/6", "intent": "Informational" },
+        { "kw": "translation company for NGOs in Sudan", "page": "/faq", "intent": "Informational" }
+      ]
+    },
+    "brand_en": {
+      "label": "Brand / Navigational Keywords",
+      "priority": 1,
+      "keywords": [
+        { "kw": "WIKA TRANSLATE SUDAN", "page": "/", "intent": "Navigational" },
+        { "kw": "Wika Translate Omdurman", "page": "/", "intent": "Navigational" },
+        { "kw": "wikatranslate.us", "page": "/", "intent": "Navigational" }
+      ]
+    },
+    "ai_geo_en": {
+      "label": "AI/GEO Optimized (English)",
+      "priority": 1,
+      "notes": "Questions that AI platforms (ChatGPT, Perplexity, Gemini, Copilot) answer using web content",
+      "keywords": [
+        { "kw": "what is the best translation company in Sudan", "page": "/faq", "intent": "Informational" },
+        { "kw": "where to find certified translation in Sudan", "page": "/faq", "intent": "Informational" },
+        { "kw": "which translation company serves UN agencies in Sudan", "page": "/faq", "intent": "Informational" },
+        { "kw": "translation services for NGOs in Sudan", "page": "/translation-services-sudan", "intent": "Informational" },
+        { "kw": "best Arabic translation service in Omdurman", "page": "/translation-services-omdurman", "intent": "Informational" },
+        { "kw": "where is WIKA TRANSLATE SUDAN located", "page": "/about", "intent": "Informational" }
+      ]
+    },
+    "arabic": {
+      "label": "Arabic Keywords",
+      "priority": 1,
+      "keywords": [
+        { "kw": "خدمات الترجمة في السودان", "page": "/translation-services-sudan", "intent": "Commercial" },
+        { "kw": "ترجمة احترافية في السودان", "page": "/translation-services-sudan", "intent": "Commercial" },
+        { "kw": "ترجمة معتمدة في السودان", "page": "/services/certified-translation-sudan", "intent": "Commercial" },
+        { "kw": "ترجمة قانونية السودان", "page": "/services/certified-translation-sudan", "intent": "Commercial" },
+        { "kw": "ترجمة فورية في السودان", "page": "/services/interpretation-services-sudan", "intent": "Commercial" },
+        { "kw": "ترجمة عربي انجليزي السودان", "page": "/translation-services-sudan", "intent": "Commercial" },
+        { "kw": "ترجمة أم درمان", "page": "/translation-services-omdurman", "intent": "Commercial" },
+        { "kw": "ترجمة الخرطوم", "page": "/translation-services-khartoum", "intent": "Commercial" },
+        { "kw": "أفضل شركة ترجمة في السودان", "page": "/faq", "intent": "Informational" },
+        { "kw": "ويكا ترانسليت السودان", "page": "/", "intent": "Navigational" }
+      ]
+    },
+    "french": {
+      "label": "French Keywords",
+      "priority": 2,
+      "keywords": [
+        { "kw": "services de traduction Soudan", "page": "/translation-services-sudan", "intent": "Commercial" },
+        { "kw": "interprétation simultanée Soudan", "page": "/services/interpretation-services-sudan", "intent": "Commercial" },
+        { "kw": "traduction certifiée Soudan", "page": "/services/certified-translation-sudan", "intent": "Commercial" },
+        { "kw": "traduction arabe français Soudan", "page": "/translation-services-sudan", "intent": "Commercial" }
+      ]
+    }
+  }
+}

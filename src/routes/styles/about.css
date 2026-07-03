@@ -280,3 +280,75 @@ h2 {
     padding: 0 2rem 2rem 0;
   }
 }
+
+/* ── Authority / Wikipedia-style section ── */
+.about_authority_section {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(rgba(56, 52, 41, 0.6), rgba(56, 52, 41, 0.9)),
+    url(/src/assets/image5.JPG);
+  background-position: center;
+  background-size: cover;
+  padding: 80px 5%;
+}
+
+.about_authority_inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about_authority_title {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 32px;
+  color: #ffca7a;
+}
+
+.about_authority_title hr {
+  width: 90px;
+  border: none;
+  height: 3px;
+  background-color: #b7312a;
+  margin: 10px 0 20px 0;
+}
+
+.about_authority_prose {
+  line-height: 1.85;
+  color: #d2c79f;
+}
+
+.about_authority_prose h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 36px 0 12px;
+  color: #ffca7a;
+  border-bottom: 1px solid rgba(183, 49, 42, 0.5);
+  padding-bottom: 8px;
+}
+
+.about_authority_prose p {
+  margin-bottom: 16px;
+}
+
+.about_authority_prose ul {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+.about_authority_prose ul li {
+  margin-bottom: 10px;
+}
+
+.about_authority_prose a {
+  color: #ffca7a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.about_authority_prose a:hover {
+  color: rgba(255, 202, 122, 0.7);
+}
+
+.about_authority_prose strong {
+  color: #ffca7a;
+}

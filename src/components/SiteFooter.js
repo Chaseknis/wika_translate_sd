@@ -55,12 +55,52 @@ function SiteFooter() {
                 <li><Link to="/" className="link">{t.footer.links.home}</Link></li>
                 <li><Link to="/contact" className="link">{t.footer.links.contact}</Link></li>
                 <li><Link to="/about" className="link">{t.footer.links.about}</Link></li>
-                <li><Link to="/Services" className="link">{t.footer.links.services}</Link></li>
+                <li><Link to="/services" className="link">{t.footer.links.services}</Link></li>
+                <li><Link to="/blog" className="link">{t.footer.links.blog}</Link></li>
+                <li><Link to="/faq" className="link">{t.footer.links.faq}</Link></li>
+                <li><Link to="/translation" className="link">{t.footer.links.translation}</Link></li>
               </ul>
               <ul className="links-list">
-                <li><Link to="/blog" className="link">{t.footer.links.blog}</Link></li>
-                <li><Link to="/FAQ" className="link">{t.footer.links.faq}</Link></li>
-                <li><Link to="/Translation" className="link">{t.footer.links.translation}</Link></li>
+                <li>
+                  <Link to="/translation-services-sudan" className="link">
+                    Translation Services Sudan
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services/document-translation-sudan" className="link">
+                    Document Translation
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services/certified-translation-sudan" className="link">
+                    Certified Translation
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services/interpretation-services-sudan" className="link">
+                    Interpretation Services
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services/interpretation-equipment-rental-sudan" className="link">
+                    Equipment Rental
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/translation-services-khartoum" className="link">
+                    Translation Khartoum
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/translation-services-omdurman" className="link">
+                    Translation Omdurman
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/translation-services-port-sudan" className="link">
+                    Translation Port Sudan
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -86,6 +126,24 @@ function SiteFooter() {
             <p className="newsletter-description">{t.footer.newsletterDesc}</p>
           </div>
 
+        </div>
+
+        <div className="footer-offices">
+          <h3 className="footer-offices-title">Our Other Offices</h3>
+          <div className="footer-offices-list">
+            <div className="footer-office">
+              <strong>Wika Translate Kentucky</strong>
+              <span>1048 Fisk Court, Lexington, Kentucky, USA</span>
+              <a href="tel:+18594578542">+1 (859) 457-8542</a>
+              <a href="mailto:info@wikatranslate.com">info@wikatranslate.com</a>
+            </div>
+            <div className="footer-office">
+              <strong>Wika Translate Kigali</strong>
+              <span>Makuza Peace Plaza, KN 84 St, Kigali, Rwanda</span>
+              <a href="tel:+250788933063">+250 788 933 063</a>
+              <a href="mailto:info@wikatranslate.net">info@wikatranslate.net</a>
+            </div>
+          </div>
         </div>
 
         <div className="footer-bottom">

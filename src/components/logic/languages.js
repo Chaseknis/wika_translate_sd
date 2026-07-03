@@ -1,6 +1,6 @@
 // Language List
 const languages = [
-  'English', 'French', 'Kinyarwanda', 'Arabic', 'Spanish', 'German', 'Italian',
+  'Arabic', 'English', 'French', 'Spanish', 'German', 'Italian',
   'Swahili', 'Portuguese', 'Chinese', 'Japanese', 'Russian', 'Hindi', 'Bengali',
   'Urdu', 'Persian', 'Turkish', 'Thai', 'Vietnamese', 'Korean', 'Polish',
   'Dutch', 'Greek', 'Hebrew', 'Czech', 'Hungarian', 'Romanian', 'Serbian',

@@ -23,7 +23,7 @@ function OurPartners() {
             <hr />
           </h2>
           <p className="our-partners-paragraph">
-            At Wika Translate Ltd, our clients are at the heart of everything we do.
+            At Wika Translate Sudan, our clients are at the heart of everything we do.
             We pride ourselves on delivering tailored language solutions that not only meet
             but exceed expectations, with an unwavering commitment to professionalism and
             integrity. Our diverse clientele ranges from multinational corporations to
@@ -43,16 +43,16 @@ function OurPartners() {
         className="our-partners-grid"
       >
         <div className="partner-item">
-          <img src={PaxforPeace} alt="Translation Agency in Kigali" loading="lazy" className="partner-logo" />
+          <img src={PaxforPeace} alt="Translation Agency in Sudan" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={mPharma} alt="Interpretation Company in Kigali" loading="lazy" className="partner-logo" />
+          <img src={mPharma} alt="Interpretation Company in Sudan" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
           <img src={HIVOS} alt="HIVOS International" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={care} alt="Interpretation Company in Rwanda" loading="lazy" className="partner-logo" />
+          <img src={care} alt="Interpretation Company in Sudan" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
           <img src={GTBank} alt="Guaranty Trust Bank" loading="lazy" className="partner-logo" />
@@ -61,22 +61,22 @@ function OurPartners() {
           <img src={Ishyo} alt="Ishyo Art Center" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={technisup} alt="Technisup Rwanda LTD" loading="lazy" className="partner-logo" />
+          <img src={technisup} alt="Technisup International" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={OryxEnergies} alt="ORYX Energies Rwanda" loading="lazy" className="partner-logo" />
+          <img src={OryxEnergies} alt="ORYX Energies" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
           <img src={SmartAfrica} alt="Smart Africa" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={BurkinaFaso} alt="Translation Company in Kigali" loading="lazy" className="partner-logo" />
+          <img src={BurkinaFaso} alt="Translation Company in Sudan" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={Rwanda} alt="Translation Company in Rwanda" loading="lazy" className="partner-logo" />
+          <img src={Rwanda} alt="Translation Company in Sudan" loading="lazy" className="partner-logo" />
         </div>
         <div className="partner-item">
-          <img src={Irembo} alt="Irembo Rwanda" loading="lazy" className="partner-logo" />
+          <img src={Irembo} alt="Irembo International" loading="lazy" className="partner-logo" />
         </div>
       </div>
     </div>

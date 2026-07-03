@@ -1,6 +1,8 @@
 # MP4 MIME type and range-request support (required for HTML5 video on some servers)
 <IfModule mod_mime.c>
   AddType video/mp4 .mp4
+  AddType application/xml .xml
+  AddType text/plain .txt
 </IfModule>
 
 Header set Accept-Ranges bytes
@@ -37,4 +39,17 @@ Header set Accept-Ranges bytes
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Force HTTPS
+<IfModule mod_rewrite.c>
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>

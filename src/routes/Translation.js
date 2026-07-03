@@ -6,6 +6,36 @@ import videoBg5 from '../assets/videoBg5.mp4';
 import SiteFooter from '../components/SiteFooter';
 import { useTranslation } from '../contexts/LanguageContext';
 
+const translationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Certified Translation Services in Sudan',
+  description: 'Professional certified translation services for legal, technical and business documents in Arabic, English, French, Swahili and 100+ languages. 5-step quality assurance process.',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'Wika Translate Sudan',
+    url: 'https://www.wikatranslate.us',
+  },
+  serviceType: 'Certified Translation',
+  areaServed: [
+    { '@type': 'Country', name: 'Sudan' },
+    { '@type': 'Country', name: 'South Sudan' },
+    { '@type': 'Country', name: 'Ethiopia' },
+    { '@type': 'Country', name: 'Kenya' },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Translation Services',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Legal Translation Sudan', description: 'Certified legal document translation for courts, contracts and official proceedings' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Technical Translation Sudan', description: 'Precision translation of technical manuals, specifications and engineering documents' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Business Translation Sudan', description: 'Professional business document translation including contracts, reports and proposals' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Arabic-English Translation Sudan', description: 'Expert Arabic to English and English to Arabic translation services' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'French-Arabic Translation Sudan', description: 'Professional French to Arabic and Arabic to French translation services' } },
+    ],
+  },
+};
+
 function Translation() {
   const { t } = useTranslation();
   const [openSteps, setOpenSteps] = useState([false, false, false, false, false]);
@@ -42,6 +72,7 @@ function Translation() {
   }, [t]);
 
   useEffect(() => {
+    if (navigator.userAgent === 'ReactSnap') return undefined;
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % 3);
     }, 3000);
@@ -50,22 +81,23 @@ function Translation() {
 
   return (
     <>
-      <Helmet>
-        <title>
-          Translation Services in Rwanda - Certified, Legal &amp; Technical | Wika Translate
-        </title>
-        <meta name="description" content="Professional certified translation services for legal, technical, and business documents. Kinyarwanda, French, English, Swahili, Arabic, German, and 150+ more languages. Fast turnaround. Based in Kigali, Rwanda." />
-        <meta name="keywords" content="translation services Kigali, certified translation Rwanda, legal translation Rwanda, technical translation Rwanda, Kinyarwanda translation, French translation Rwanda, document translation Kigali" />
-        <link rel="canonical" href="https://www.wikatranslate.net/translation" />
-        <meta property="og:title" content="Translation Services in Rwanda | Certified, Legal &amp; Technical - Wika Translate" />
-        <meta property="og:description" content="Professional certified translation services for legal, technical, and business documents in 150+ languages. Fast turnaround. Based in Kigali, Rwanda." />
-        <meta property="og:url" content="https://www.wikatranslate.net/translation" />
+      <Helmet defer={false}>
+        <title>Certified Translation Sudan | Arabic, Legal & Technical</title>
+        <meta name="description" content="Certified translation in Sudan for legal, technical & business documents. Arabic-English-French. 5-step quality process. Fast turnaround. Trusted by NGOs & embassies." />
+        <meta name="keywords" content="certified translation Sudan, legal translation Sudan, technical translation Sudan, Arabic translation Sudan, Arabic English translation Sudan, document translation Omdurman, French translation Sudan, translation services Khartoum, NGO document translation Sudan, embassy document translation Sudan" />
+        <link rel="canonical" href="https://www.wikatranslate.us/translation" />
+        <meta property="og:title" content="Certified Translation Sudan | Arabic, Legal & Technical" />
+        <meta property="og:description" content="Certified translation in Sudan for legal, technical & business documents. Arabic-English-French. 5-step quality process. Fast turnaround. Trusted by NGOs & embassies." />
+        <meta property="og:url" content="https://www.wikatranslate.us/translation" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
+        <meta property="og:image" content="https://www.wikatranslate.us/images/office.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Translation Services in Rwanda | Certified, Legal &amp; Technical - Wika Translate" />
-        <meta name="twitter:description" content="Professional certified translation services for legal, technical, and business documents in 150+ languages. Fast turnaround. Based in Kigali, Rwanda." />
-        <meta name="twitter:image" content="https://www.wikatranslate.net/images/og-image.jpg" />
+        <meta name="twitter:title" content="Certified Translation Sudan | Arabic, Legal & Technical" />
+        <meta name="twitter:description" content="Certified translation in Sudan for legal, technical & business documents. Arabic-English-French. Fast turnaround. Trusted by NGOs & embassies." />
+        <meta name="twitter:image" content="https://www.wikatranslate.us/images/office.jpg" />
+        <script type="application/ld+json">
+          {JSON.stringify(translationSchema)}
+        </script>
       </Helmet>
       <section className="translation" id="translation">
         <div className="about_title_main_container">

@@ -13,8 +13,8 @@ function ContactDetails() {
                 <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
               </svg>
             </div>
-            <a href="tel:+250788933063" className="contact-text">
-              +250 788 933 063
+            <a href="tel:+249967200938" className="contact-text">
+              +249 967 200 938
             </a>
           </div>
 
@@ -26,8 +26,8 @@ function ContactDetails() {
                 <polyline points="3 7 12 13 21 7" />
               </svg>
             </div>
-            <a href="mailto:info@wikatranslate.net" className="contact-text">
-              info@wikatranslate.net
+            <a href="mailto:info@wikatranslate.us" className="contact-text">
+              info@wikatranslate.us
             </a>
           </div>
         </div>
@@ -40,8 +40,8 @@ function ContactDetails() {
               <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
             </svg>
           </div>
-          <a href="https://maps.app.goo.gl/dqJncgiqEbH4gr8H9" className="address-text" target="_blank" rel="noopener noreferrer">
-            Makuza Peace Plaza, KN 84 St, Kigali, Rwanda
+          <a href="https://maps.app.goo.gl/T8cyvyZxPMcMXBRh9?g_st=ic" className="address-text" target="_blank" rel="noopener noreferrer">
+            Al Emtidad Street, Omdurman, Sudan
           </a>
 
         </div>

@@ -49,6 +49,7 @@ function Home() {
   }, [t]);
 
   useEffect(() => {
+    if (navigator.userAgent === 'ReactSnap') return undefined;
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % 3);
     }, 3000);
@@ -175,7 +176,7 @@ function Home() {
               <div className="about_image_wrapper">
                 <img
                   src={image3}
-                  alt="Professional translation and interpretation team at Wika Translate, Kigali"
+                  alt="Professional interpretation and translation team at Wika Translate Sudan, Omdurman"
                   loading="lazy"
                   width="600"
                   height="400"
@@ -225,6 +226,31 @@ function Home() {
             ))}
           </div>
         </AnimateOnScroll>
+        <div className="services_subpages_wrapper">
+          <h2 className="services_subpages_title">
+            {t.services.exploreTitle}
+            <hr />
+          </h2>
+          <div className="services_subpages_grid">
+            {[
+              { to: '/services/document-translation-sudan', icon: 'uil uil-file-check-alt', card: t.services.exploreCards[0] },
+              { to: '/services/certified-translation-sudan', icon: 'uil uil-shield-check', card: t.services.exploreCards[1] },
+              { to: '/services/interpretation-services-sudan', icon: 'uil uil-microphone', card: t.services.exploreCards[2] },
+              { to: '/services/interpretation-equipment-rental-sudan', icon: 'uil uil-headphones-alt', card: t.services.exploreCards[3] },
+            ].map(({ to, icon, card }) => (
+              <Link key={to} to={to} className="srv_link_card">
+                <i className={icon} />
+                <strong>{card.name}</strong>
+                <p>{card.desc}</p>
+              </Link>
+            ))}
+          </div>
+          <div className="services_subpages_cta">
+            <Link to="/translation-services-sudan" className="services_sudan_link">
+              {t.home.cities.viewAll}
+            </Link>
+          </div>
+        </div>
       </section>
       <section className="translation" id="translation">
         <div className="translation_section-container">
@@ -276,6 +302,36 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* Cities We Serve */}
+      <section className="cities-section">
+        <div className="cities-inner">
+          <h2 className="cities-title">
+            {t.home.cities.title}
+            <hr />
+          </h2>
+          <p className="cities-subtitle">
+            {t.home.cities.subtitle}
+          </p>
+          <div className="cities-grid">
+            <Link to="/translation-services-khartoum" className="city-chip">Khartoum</Link>
+            <Link to="/translation-services-omdurman" className="city-chip">Omdurman</Link>
+            <Link to="/translation-services-port-sudan" className="city-chip">Port Sudan</Link>
+            <Link to="/translation-services-kassala" className="city-chip">Kassala</Link>
+            <Link to="/translation-services-el-obeid" className="city-chip">El Obeid</Link>
+            <Link to="/translation-services-wad-madani" className="city-chip">Wad Madani</Link>
+            <Link to="/translation-services-nyala" className="city-chip">Nyala</Link>
+            <Link to="/translation-services-gedaref" className="city-chip">Gedaref</Link>
+            <Link to="/translation-services-atbara" className="city-chip">Atbara</Link>
+          </div>
+          <div className="cities-cta">
+            <Link to="/translation-services-sudan" className="cities-view-all">
+              {t.home.cities.viewAll}
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="faq" id="faq">
         <div className="faq-container">
           <AnimateOnScroll variant="fadeUp" className="faq-header">
@@ -321,7 +377,7 @@ function Home() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
           >
-            {Object.keys(blogContent).map((id) => (
+            {Object.keys(blogContent).slice(0, 4).map((id) => (
               <motion.div key={id} className="blog-preview" variants={staggerItem}>
                 <h3>{blogContent[id].title}</h3>
                 <p>{blogContent[id].metaDescription}</p>
@@ -365,7 +421,7 @@ function Home() {
               <form id="form" action="https://formspree.io/f/xjvdgezn" method="POST" className="contact-form">
                 <input type="text" name="_honey" style={{ display: 'none' }} />
                 <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value="http://127.0.0.1:5555/#contact-us" />
+                <input type="hidden" name="_next" value="https://www.wikatranslate.us/contact" />
                 <div className="contact_details">
                   <input type="text" id="name" name="name" placeholder={t.contact.fullName} className="input" required />
                   <input type="text" id="phone" name="phone" placeholder={t.contact.phone} className="input" />
